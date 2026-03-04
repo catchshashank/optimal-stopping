@@ -16,4 +16,8 @@
    - Dynamics may be unknown
    - State at (t + 1) may depend on history
    So the paper proposes a **model-free learning** method.
-6) Continuous-time problems can be discretized - standard in numerical methods [(Kloeden & Platen, 1992))](https://link.springer.com/book/10.1007/978-3-662-12616-5)
+6) Continuous-time problems can be discretized - standard in numerical methods [(Kloeden & Platen, 1992)](https://link.springer.com/book/10.1007/978-3-662-12616-5)
+7) However, solving non-Markovian problems is challenging because:
+   -  *Curse of dimensionality*
+       - Transforming a non-Markovian process to a Markovian process would involve expanding the *state-space* substantially with process history.
+       - However, this expansion of *state-space* would make the approximation of the value function highly complex due to high-dimensionality. 
