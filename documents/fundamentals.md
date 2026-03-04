@@ -9,5 +9,9 @@
    - Hence, we don't know the true data-generating process and only have sample trajectories.
    - The algorithm learns from these **observed trajectories**, not from a known model.
 4) Contrast with *classical approaches*:
-   - Known dynamics: Traditional finance assumes the exact formula for price movement.
-   - Markov chain: Future only depends on the current state, not the entire past.
+   - *Known dynamics*: Traditional finance assumes the exact formula for price movement.
+   - *Markov chain*: Future only depends on the current state, not the entire past.
+5) **Why the paper avoids this assumption**
+   - Markov assumption may fail - there could be path-dependent payoffs
+   - Dynamics may be unknown
+   - State at (t + 1) may depend on history
