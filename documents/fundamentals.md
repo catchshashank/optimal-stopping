@@ -1,4 +1,4 @@
-#### **Concepts**
+## **Concepts**
 1) `Discrete-time`: Instead of time flowing continuously, we only look at specific checkpoints.
     - Most financial models assume continuous time (prices move every instant).
     - But neural networks work more naturally with discrete steps, so the problem is converted into a grid of decision points.
