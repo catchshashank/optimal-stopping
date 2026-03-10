@@ -1,2 +1,405 @@
-# optimal-stopping
-I replicate the paper on optimal stopping in sales conversations by Manzoor, Ascarza, and Netzer (2025).
+# Llama 3.2 3B + Behavioral Cloning: Code Walkthrough for Management Students
+
+> **What this notebook does in plain English:** It trains an AI agent to decide, during a live sales call, whether to keep the salesperson on the line or end the call early — because continuing a doomed call wastes money. The notebook uses a technique called *Behavioral Cloning*: it first figures out, from historical data, what the *correct* decision would have been at each moment, and then teaches a large language model (LLM) to replicate those correct decisions.
+
+---
+
+## PART 1 — Setting Up and Preparing the Data
+
+---
+
+### Block 1 · Importing Tools and Setting Business Rules
+
+```python
+import datasets, huggingface_hub, math, numpy as np, pandas as pd, torch, transformers
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score
+from tqdm.auto import tqdm
+
+HF_TOKEN = "HF_TOKEN"
+
+COST_PER_UNIT_TIME = 0.1
+BENEFIT_PER_POSITIVE_OUTCOME = 10.0
+DECISION_OPPORTUNITIES = [45, 60]
+```
+
+**What it does:** This block loads all the software libraries the notebook needs and defines three critical business parameters.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `import datasets, transformers, torch, ...` | Loads specialised software toolkits — like opening a toolbox before starting a job. `torch` is the AI computation engine; `transformers` is the LLM toolkit; `pandas` handles spreadsheet-like data. |
+| `HF_TOKEN = "HF_TOKEN"` | A password key to download the Llama AI model from HuggingFace, a public AI model library. Replace with your real key before running. |
+| `COST_PER_UNIT_TIME = 0.1` | **Business rule:** Every second a salesperson stays on a call costs £0.10 (or whatever currency unit). This is the "price of time." |
+| `BENEFIT_PER_POSITIVE_OUTCOME = 10.0` | **Business rule:** A completed sale is worth £10. So a sale must offset the time cost — creating a real financial trade-off. |
+| `DECISION_OPPORTUNITIES = [45, 60]` | **Business rule:** The agent is allowed to make a "quit or stay?" decision at exactly the 45-second mark and the 60-second mark of every call. These are the two checkpoints. |
+
+> **Management insight:** The ratio of benefit to cost (10 ÷ 0.1 = 100) means a sale is worth 100 seconds of call time. If a call is heading nowhere past 100 seconds, it is already losing money.
+
+---
+
+### Block 2 · Loading Conversation Data
+
+```python
+dataset_url = "https://raw.githubusercontent.com/.../synthetic_sales_conversations.csv"
+diarized_conversations = pd.read_csv(dataset_url)
+
+diarized_conversations["is_sale"] = diarized_conversations["outcome"].apply(
+    lambda x: 1 if x == "sale" else 0 if x == "no sale" else np.nan)
+
+diarized_conversations["duration"] = diarized_conversations.groupby(
+    "conversation_id")["end_time"].transform("max")
+```
+
+**What it does:** Downloads a dataset of synthetic (artificially generated) sales calls and creates two new summary columns.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `pd.read_csv(dataset_url)` | Downloads the CSV file from GitHub and loads it as a table. Each row is one *utterance* — one speech turn from one speaker. |
+| `diarized_conversations["is_sale"] = ...` | Adds a new column: 1 if the call resulted in a sale, 0 if not. This is the ultimate outcome label the model needs to learn from. |
+| `lambda x: 1 if x == "sale" else 0 ...` | A short, one-line rule applied to every row: "if the outcome says 'sale', write 1; if 'no sale', write 0; otherwise leave blank." |
+| `groupby("conversation_id")["end_time"].transform("max")` | For every conversation, finds the timestamp of the very last utterance — i.e., how long the entire call lasted. Adds this as a `duration` column on every row of that conversation. |
+
+> **Management insight:** The dataset is in *diarized* format — each row is a separate speech turn labelled by speaker ("Speaker 0" = salesperson, "Speaker 1" = customer). Think of it as a timestamped meeting transcript, one line per turn.
+
+---
+
+### Block 3 · Splitting Data into Train, Validation, and Test Sets
+
+```python
+train_conversation_ids, test_conversation_ids, ... = train_test_split(
+    all_conversation_ids, all_outcomes, test_size=0.25, stratify=all_outcomes)
+
+train_conversation_ids, val_conversation_ids, ... = train_test_split(
+    train_conversation_ids, train_outcomes, test_size=0.25, stratify=train_outcomes)
+```
+
+**What it does:** Divides all conversations into three separate groups so the model is tested fairly.
+
+| Group | Size | Purpose |
+|---|---|---|
+| **Training set** | ~75% | The AI learns from these conversations |
+| **Validation set** | ~12.5% | Used during training to check progress and stop early if needed |
+| **Test set** | ~12.5% | Held back completely — used only at the very end to report final results |
+
+**Key detail — `stratify=all_outcomes`:** This ensures each group has the same *proportion* of sales vs. non-sales. Without this, one group could accidentally have mostly easy cases. This makes the experiment fair.
+
+---
+
+### Block 4 · Building Transcript Snapshots at Each Checkpoint
+
+```python
+m1, m2 = sorted(DECISION_OPPORTUNITIES)   # m1=45, m2=60
+
+for m in [m1, m2]:
+    transcripts[m] = data_transcripts[dftype].loc[
+        (data_transcripts[dftype]["end_time"] >= 0) &
+        (data_transcripts[dftype]["end_time"] < m)
+    ].groupby("conversation_id")["transcript"].apply(lambda x: '\n'.join(x))
+```
+
+**What it does:** For every conversation, takes a "photograph" of the transcript at the 45-second mark and another at the 60-second mark — capturing only what had been said *so far*.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `m1, m2 = sorted(DECISION_OPPORTUNITIES)` | Unpacks the two checkpoints into `m1 = 45` and `m2 = 60` in sorted order. |
+| `data_transcripts[dftype]["end_time"] < m` | Filters to only include utterances that *finished before* the checkpoint. We cannot use words spoken after the decision point — that would be cheating. |
+| `groupby("conversation_id")["transcript"].apply(lambda x: '\n'.join(x))` | Collects all speech turns for each conversation and joins them into one block of text, separated by new lines — like assembling a readable transcript. |
+
+> **Management insight:** This is the data discipline equivalent of saying "at 45 seconds, what did we *actually know*?" The agent must make its decision with only the information available at that moment.
+
+---
+
+### Block 5 · Wrapping Transcripts into Prompts (States)
+
+```python
+def convert_to_state(transcript, t):
+    state = "Below is the first " + str(t) +
+            " seconds of the sales call between the sales agent Speaker 0 and"
+            " the customer Speaker 1:\n" + transcript + "\n" +
+            "Will this call end in a sale (respond with 'yes' or 'no'):  "
+    return state
+```
+
+**What it does:** Formats each transcript snapshot into a natural-language question the AI model can read and answer.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `"Below is the first " + str(t) + " seconds..."` | Provides the AI with context — it knows it is reading only the first 45 or 60 seconds of a call. |
+| `transcript` | The actual conversation text is inserted here. |
+| `"Will this call end in a sale (respond with 'yes' or 'no'):"` | The question the AI must answer. The model is being asked to predict the final outcome from partial information. |
+
+> **Management insight:** This is called a *prompt* in AI terminology. It translates a data row into a question written in plain English that the LLM can understand — exactly as you might brief a consultant.
+
+---
+
+### Block 6 · Computing the Optimal Decision at Each Checkpoint *(most important block)*
+
+```python
+df["rq" + str(m1)] = -m1 * COST_PER_UNIT_TIME                    # reward if quit at 45s
+
+df["rq" + str(m2)] = df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME \
+                   * (df["duration"] <= m2) \
+                   - df["duration"].apply(lambda x: min(m2, x)) * COST_PER_UNIT_TIME
+
+df["rc" + str(m2)] = df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME \
+                   - df["duration"] * COST_PER_UNIT_TIME
+
+df["max_reward"] = df[["rq45", "rq60", "rc60"]].max(axis=1)
+```
+
+**What it does:** For every historical call — where we *already know* the outcome — calculates what the financially optimal decision would have been. This is how the "correct answer" labels are generated without any human expert.
+
+**Three strategies evaluated:**
+
+| Strategy Column | Meaning | Reward Formula |
+|---|---|---|
+| `rq45` | Quit at 45 seconds | −45 × 0.1 = **−£4.50** always (no sales possible) |
+| `rq60` | Wait to 60s, then quit | Sale benefit (if call ≤ 60s long) minus cost of time |
+| `rc60` | Never quit — let it run | Full sale benefit minus total call duration cost |
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `-m1 * COST_PER_UNIT_TIME` | Quitting at 45 seconds always costs exactly −£4.50. There is no benefit because you end before a sale can be confirmed. |
+| `df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME` | If the call *would have* ended in a sale, credit the full £10 benefit. If not, this term is zero. |
+| `* (df["duration"] <= m2)` | The sale benefit only applies if the call actually finished by the 60s mark — you cannot claim a sale from a call you hung up on. |
+| `df[["rq45", "rq60", "rc60"]].max(axis=1)` | For each call, picks the *highest reward* among the three strategies. That becomes the label: whatever strategy maximised reward is what the AI should learn to do. |
+
+**Action labels assigned from max reward:**
+
+```python
+df.loc[df["max_reward"] == df["rq45"], "a45"] = "no"   # quit at 45, quit at 60
+df.loc[df["max_reward"] == df["rq60"], "a45"] = "yes"  # wait at 45, quit at 60
+df.loc[df["max_reward"] == df["rc60"], "a45"] = "yes"  # wait at 45, wait at 60
+```
+
+> **Management insight:** This step answers: *"With the benefit of hindsight, what should have been done?"* It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
+
+---
+
+## PART 2 — Training the AI Model and Evaluating Results
+
+---
+
+### Block 7 · Loading the Llama Language Model
+
+```python
+huggingface_hub.login(token=HF_TOKEN)
+model_name = "meta-llama/Llama-3.2-3B"
+tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
+model = transformers.AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto")
+tokenizer.pad_token_id = tokenizer.eos_token_id
+tokenizer.padding_side = 'left'
+```
+
+**What it does:** Downloads and loads Meta's Llama 3.2 language model (3 billion parameters) — a powerful, open-source AI that reads and generates text.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `huggingface_hub.login(token=HF_TOKEN)` | Authenticates with the AI model library — like showing your membership card to access a specialist database. |
+| `"meta-llama/Llama-3.2-3B"` | Specifies the base (un-customised) version of Llama — the "blank slate" that will be trained on sales call decisions. |
+| `AutoTokenizer.from_pretrained(...)` | Loads the *tokeniser* — the system that converts human text into the numerical codes the AI processes internally. |
+| `AutoModelForCausalLM.from_pretrained(...)` | Loads the actual neural network weights. "CausalLM" means it is a text-generation model that reads text left to right and predicts what comes next. |
+| `tokenizer.padding_side = 'left'` | A technical setting: when processing multiple calls in a batch, shorter transcripts are padded on the *left* side. This ensures the model's final computation always reflects the actual last word of the prompt, not a blank filler character. |
+
+---
+
+### Block 8 · Tokenising the Training Data with Label Masking
+
+```python
+def tokenize_fn(example, add_label):
+    encoded_prompt = tokenizer.encode(tokenizer.bos_token + example["prompt"])
+    if add_label:
+        encoded_label = tokenizer.encode(example["completion"] + tokenizer.eos_token)
+        return {
+            "input_ids":      encoded_prompt + encoded_label,
+            "attention_mask": [1] * (len(encoded_prompt) + len(encoded_label)),
+            "labels":         [-100] * len(encoded_prompt) + encoded_label
+        }
+```
+
+**What it does:** Converts each (prompt, action) pair into the number sequences the model trains on, and crucially *masks* the prompt so the model only learns from the action word.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `tokenizer.bos_token + example["prompt"]` | Adds a special "beginning of sequence" marker before the transcript prompt — like a formal salutation that signals the start of a document. |
+| `tokenizer.encode(example["completion"] + tokenizer.eos_token)` | Converts the action word ("yes" or "no") plus an "end of sequence" marker into numbers. |
+| `"labels": [-100] * len(encoded_prompt) + encoded_label` | **The critical masking step.** The value −100 tells the training algorithm: "ignore this token — do not calculate error for these positions." Only the action tokens ("yes"/"no" + end marker) contribute to the learning signal. |
+
+> **Management insight:** Without label masking, the model would waste effort learning to predict the *question* rather than the *answer*. Masking focuses 100% of learning on the decision: "given this transcript, should we quit?" This is equivalent to marking an exam where only the answer box is graded, not the working shown in the margin.
+
+---
+
+### Block 9 · Fine-Tuning the Model
+
+```python
+training_args = transformers.TrainingArguments(
+    output_dir="./llama-3.2-3B/",
+    num_train_epochs=10,
+    learning_rate=1e-4,
+    per_device_train_batch_size=12,
+    metric_for_best_model="auc",
+    load_best_model_at_end=True,
+    bf16=True,
+)
+
+trainer = transformers.Trainer(
+    model=model,
+    train_dataset=train_dataset.shuffle(),
+    eval_dataset=val_dataset,
+    compute_metrics=compute_metrics,
+    callbacks=[transformers.EarlyStoppingCallback(early_stopping_patience=1)]
+)
+
+trainer.train()
+```
+
+**What it does:** Runs the actual model training — showing the model thousands of (transcript → decision) examples so it learns to predict the right action.
+
+**Key settings explained:**
+
+| Setting | Value | Plain-English Meaning |
+|---|---|---|
+| `num_train_epochs=10` | Up to 10 | Maximum number of complete passes through the training data. Training may stop earlier if the model converges. |
+| `learning_rate=1e-4` | 0.0001 | How large a step the model takes when adjusting its internal parameters after each error. Too large = unstable learning; too small = very slow. |
+| `per_device_train_batch_size=12` | 12 | How many calls are processed simultaneously in one learning step. Larger batches need more GPU memory. |
+| `metric_for_best_model="auc"` | AUC | The model saves its best version based on AUC score (a measure of ranking accuracy) not raw loss — because AUC better predicts whether the threshold tuning step will work. |
+| `load_best_model_at_end=True` | — | At the end of training, automatically reverts to whichever checkpoint had the highest AUC on the validation set. |
+| `bf16=True` | — | Uses a memory-efficient number format (bfloat16) that halves GPU memory use with minimal accuracy loss. Requires a modern GPU. |
+| `EarlyStoppingCallback(patience=1)` | — | If validation AUC does not improve for 1 full epoch, training stops automatically — preventing over-fitting and saving compute time. |
+
+> **Management insight:** In practice, training stopped at Epoch 4 when validation AUC reached 1.00 — perfect separation of "quit" vs. "wait" calls. The model effectively mastered the decision problem.
+
+---
+
+### Block 10 · Generating Predictions on New Calls
+
+```python
+outputs = trainer.model.generate(
+    **batch,
+    max_new_tokens=2,
+    do_sample=False,
+    temperature=None, top_p=None, top_k=None,
+    return_dict_in_generate=True, output_scores=True
+)
+logprobs = torch.log_softmax(scores, dim=-1)
+```
+
+**What it does:** Runs the trained model on unseen calls and records both its verbal answer ("yes"/"no") and its *confidence score* for that answer.
+
+**Line-by-line:**
+
+| Line | Plain-English Meaning |
+|---|---|
+| `max_new_tokens=2` | The model is only allowed to generate 2 new words — we expect just "yes" or "no" followed by an end marker. |
+| `do_sample=False` | Uses *greedy decoding*: always picks the single highest-probability word. This makes the output deterministic and consistent — the same call always gets the same answer. |
+| `temperature=None, top_p=None, top_k=None` | Disables all randomness-injection mechanisms. The model gives its most confident, unambiguous answer each time. |
+| `output_scores=True` | Returns the raw probability numbers for every possible word at the decision point — not just the chosen word. |
+| `torch.log_softmax(scores, dim=-1)` | Converts the raw model scores into proper probabilities (logarithmic scale). From these, we extract the probability assigned specifically to "yes" — the model's confidence that the call will end in a sale. |
+
+---
+
+### Block 11 · Computing Confidence Scores (`prob_yes`)
+
+```python
+predictions["prob"] = predictions["logprob"].apply(lambda x: math.exp(x))
+predictions.loc[predictions["response"] == "yes", "prob_yes"] = predictions["prob"]
+predictions.loc[predictions["response"] != "yes", "prob_yes"] = 1.0 - predictions["prob"]
+```
+
+**What it does:** Converts the model's raw output into a single number between 0 and 1 — the probability that this call will result in a sale.
+
+| Logic | Meaning |
+|---|---|
+| If the model said **"yes"**: `prob_yes = prob` | The model's confidence in "yes" is taken directly. |
+| If the model said **"no"**: `prob_yes = 1 − prob` | The model was confident in "no" — so its confidence in "yes" is the complement. |
+
+> **Management insight:** This gives us a continuous score (e.g., 0.03 = very likely to fail, 0.91 = very likely to succeed) rather than just a binary word. This score is what the threshold system uses to make the final quit/wait decision.
+
+---
+
+### Block 12 · Finding the Optimal Decision Thresholds (Backward Induction)
+
+```python
+# Step 1: Find best threshold for the 60-second checkpoint
+for candidate_threshold in np.linspace(min_prob, max_prob, num=10000):
+    total_reward, avg_reward, ... = simulate_threshold(0, candidate_threshold, val_data)
+    if avg_reward > best_reward:
+        best_threshold_at_m[m2] = candidate_threshold
+
+# Step 2: Find best threshold for 45-second checkpoint, holding 60s threshold fixed
+for candidate_threshold in np.linspace(min_prob, max_prob, num=10000):
+    total_reward, avg_reward, ... = simulate_threshold(candidate_threshold, best_m2, val_data)
+    if avg_reward > best_reward:
+        best_threshold_at_m[m1] = candidate_threshold
+```
+
+**What it does:** Searches for the exact confidence cut-off values that maximise total financial reward on the validation set.
+
+**The logic of backward induction:**
+
+The agent faces two checkpoints in sequence: 45s then 60s. To avoid an exponentially expensive combined search (10,000 × 10,000 = 100 million combinations), the code solves them in *reverse order*:
+
+1. **Fix the 60-second threshold first** — assuming every call always reaches 60 seconds, find the confidence cut-off that maximises reward at that point alone.
+2. **Then fix the 45-second threshold** — now that the 60-second policy is locked, find the threshold for the earlier checkpoint.
+
+This reduces the problem from 100 million evaluations to 20,000 — a 5,000× speedup.
+
+**The `simulate_threshold` function:**
+
+```python
+calls_quit_at_m1 = df.loc[df["prob_yes_45"] < threshold_m1]       # Quit early
+calls_continued_quit_at_m2 = df.loc[(prob_yes_45 >= threshold) &
+                                     (prob_yes_60 < threshold_m2)] # Quit at 60s
+calls_continued_at_m2 = df.loc[both above threshold]              # Let run to end
+```
+
+For each candidate threshold, it simulates the business outcome: counts sales closed, total time spent, and computes net financial reward.
+
+---
+
+### Block 13 · Final Results
+
+```python
+print("Test set reward WITH the stopping agent:")
+print("Total reward:", total_reward_agent)
+print("Sales lost by stopping agent:", total_sales_noagent - total_sales_agent)
+print("Time saved (%):", (total_time_noagent - total_time_agent) / total_time_noagent * 100)
+```
+
+**What it reports:** The head-to-head comparison between letting every call run to completion versus using the AI stopping agent.
+
+| Metric | No Agent | With Agent | Change |
+|---|---|---|---|
+| Avg. reward per call | −£1.56 | −£1.21 | **+23% improvement** |
+| Total time spent (s) | 3,279 s | 3,002 s | **−8.5% time saved** |
+| Total sales closed | 25 | 24 | −1 sale lost |
+
+> **Management takeaway:** The agent sacrifices one sale out of 25 to save 8.5% of total call time. That freed-up time can be reallocated to additional calls, which in expectation generates *more* sales than the one lost. This is the core business case: intelligent early stopping is better than letting every call run regardless of signal.
+
+---
+
+## Summary for Decision-Makers
+
+| Stage | What Happened | Why It Matters |
+|---|---|---|
+| **Data preparation** | Historical calls were labelled with "what should have been done?" using financial logic | No expensive human annotation needed |
+| **Prompt construction** | Each call snapshot became a plain-English question to the AI | Made a complex prediction task accessible to a general-purpose LLM |
+| **Model training** | Llama 3.2 3B was taught to answer "yes/no" from partial transcripts | The model learned the linguistic signals of a failing call |
+| **Threshold tuning** | Validation data was used to set confidence cut-offs that maximise profit | Converted AI probability scores into real business decisions |
+| **Evaluation** | The agent was tested on completely unseen calls | Results are genuine — the model had never seen these calls before |
+
+> **Bottom line:** This notebook demonstrates that a general-purpose language model — with no prior knowledge of sales — can be fine-tuned using business logic alone to become a reliable decision-support agent, saving meaningful time and cost with minimal sales impact.
