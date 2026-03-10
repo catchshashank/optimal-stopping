@@ -1,41 +1,35 @@
-# Llama 3.2 3B + Behavioral Cloning: Code Walkthrough for Management Students
+# Optimal Stopping in Sales Conversations: Code Walkthrough
 
-> **What this notebook does in plain English:** It trains an AI agent to decide, during a live sales call, whether to keep the salesperson on the line or end the call early — because continuing a doomed call wastes money. The notebook uses a technique called *Behavioral Cloning*: it first figures out, from historical data, what the *correct* decision would have been at each moment, and then teaches a large language model (LLM) to replicate those correct decisions.
-
----
-
-## PART 1 — Setting Up and Preparing the Data
+> **What this notebook does:** It trains an AI agent to decide, during a live sales call, whether to keep the salesperson on the line or end the call early — because continuing a doomed call wastes money. The notebook uses a technique called *Behavioral Cloning*: it first figures out, from historical data, what the *correct* decision would have been at each moment, and then teaches a large language model (LLM) to replicate those correct decisions.
 
 ---
 
-### Block 1 · Importing Tools and Setting Business Rules
+## PART 1: Setting Up and Preparing the Data
+
+---
+
+### Block 1 · Setting Business Rules
 
 ```python
-import datasets, huggingface_hub, math, numpy as np, pandas as pd, torch, transformers
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
-from tqdm.auto import tqdm
-
-HF_TOKEN = "HF_TOKEN"
-
 COST_PER_UNIT_TIME = 0.1
 BENEFIT_PER_POSITIVE_OUTCOME = 10.0
 DECISION_OPPORTUNITIES = [45, 60]
 ```
 
-**What it does:** This block loads all the software libraries the notebook needs and defines three critical business parameters.
+**What it does:** This block defines three critical business parameters.
 
 **Line-by-line:**
 
-| Line | Plain-English Meaning |
+| Line | Meaning |
 |---|---|
-| `import datasets, transformers, torch, ...` | Loads specialised software toolkits — like opening a toolbox before starting a job. `torch` is the AI computation engine; `transformers` is the LLM toolkit; `pandas` handles spreadsheet-like data. |
-| `HF_TOKEN = "HF_TOKEN"` | A password key to download the Llama AI model from HuggingFace, a public AI model library. Replace with your real key before running. |
-| `COST_PER_UNIT_TIME = 0.1` | **Business rule:** Every second a salesperson stays on a call costs £0.10 (or whatever currency unit). This is the "price of time." |
-| `BENEFIT_PER_POSITIVE_OUTCOME = 10.0` | **Business rule:** A completed sale is worth £10. So a sale must offset the time cost — creating a real financial trade-off. |
+| `COST_PER_UNIT_TIME = 0.1` | **Business rule:** Every second a salesperson stays on a call costs $0.10 (or whatever currency unit). This is the "price of time." |
+| `BENEFIT_PER_POSITIVE_OUTCOME = 10.0` | **Business rule:** A completed sale is worth $10. So a sale must offset the time cost — creating a real financial trade-off. |
 | `DECISION_OPPORTUNITIES = [45, 60]` | **Business rule:** The agent is allowed to make a "quit or stay?" decision at exactly the 45-second mark and the 60-second mark of every call. These are the two checkpoints. |
 
-> **Management insight:** The ratio of benefit to cost (10 ÷ 0.1 = 100) means a sale is worth 100 seconds of call time. If a call is heading nowhere past 100 seconds, it is already losing money.
+> **Code Logic:**
+> - The ratio of benefit to cost (10 ÷ 0.1 = 100) means a sale is worth 100 seconds of call time.
+> - If a call is heading nowhere past 100 seconds, it is already losing money.
+> - In the paper, the cost c is derived more rigorously as the expected value of initiating a new call: 1 / (average_duration) × success_rate × time_per_period. The notebook uses a simplified fixed ratio.
 
 ---
 
@@ -52,18 +46,19 @@ diarized_conversations["duration"] = diarized_conversations.groupby(
     "conversation_id")["end_time"].transform("max")
 ```
 
-**What it does:** Downloads a dataset of synthetic (artificially generated) sales calls and creates two new summary columns.
+**What it does:** Downloads a dataset of synthetic sales calls and creates two new summary columns.
 
 **Line-by-line:**
 
-| Line | Plain-English Meaning |
+| Line | Meaning |
 |---|---|
-| `pd.read_csv(dataset_url)` | Downloads the CSV file from GitHub and loads it as a table. Each row is one *utterance* — one speech turn from one speaker. |
-| `diarized_conversations["is_sale"] = ...` | Adds a new column: 1 if the call resulted in a sale, 0 if not. This is the ultimate outcome label the model needs to learn from. |
-| `lambda x: 1 if x == "sale" else 0 ...` | A short, one-line rule applied to every row: "if the outcome says 'sale', write 1; if 'no sale', write 0; otherwise leave blank." |
+| `diarized_conversations["is_sale"] = ...` | Adds a new column: 1 if the call resulted in a sale, 0 if not. This is the ultimate **outcome label** the model needs to learn from. |
+| `lambda x: 1 if x == "sale" else 0 ...` | A one-line rule applied to every row: "if the outcome says 'sale', write 1; if 'no sale', write 0; otherwise leave blank." |
 | `groupby("conversation_id")["end_time"].transform("max")` | For every conversation, finds the timestamp of the very last utterance — i.e., how long the entire call lasted. Adds this as a `duration` column on every row of that conversation. |
 
-> **Management insight:** The dataset is in *diarized* format — each row is a separate speech turn labelled by speaker ("Speaker 0" = salesperson, "Speaker 1" = customer). Think of it as a timestamped meeting transcript, one line per turn.
+> **Code Logic:**
+>  - The dataset is in *diarized* format — each row is a separate speech turn labelled by speaker ("Speaker 0" = salesperson, "Speaker 1" = customer).
+>  - Every speech turn is timestamped and labelled by the final outcome, so that the model can learn from each partial transcript prefix whether the reward-maximizing action is to "wait" or "quit", given the call’s eventual outcome and timing.
 
 ---
 
@@ -85,7 +80,7 @@ train_conversation_ids, val_conversation_ids, ... = train_test_split(
 | **Validation set** | ~12.5% | Used during training to check progress and stop early if needed |
 | **Test set** | ~12.5% | Held back completely — used only at the very end to report final results |
 
-**Key detail — `stratify=all_outcomes`:** This ensures each group has the same *proportion* of sales vs. non-sales. Without this, one group could accidentally have mostly easy cases. This makes the experiment fair.
+**Key detail — `stratify=all_outcomes`:** This ensures each group has the same *proportion* of sales vs. non-sales. Without this, one group could accidentally have mostly easy cases. This ensures the model trains proportionately on both "sale" and "no sale" outcomes.
 
 ---
 
@@ -101,17 +96,19 @@ for m in [m1, m2]:
     ].groupby("conversation_id")["transcript"].apply(lambda x: '\n'.join(x))
 ```
 
-**What it does:** For every conversation, takes a "photograph" of the transcript at the 45-second mark and another at the 60-second mark — capturing only what had been said *so far*.
+**What it does:** For every conversation, takes a "photograph" of the transcript at the 45-second mark and another at the 60-second mark — capturing only what has been said *so far*.
 
 **Line-by-line:**
 
-| Line | Plain-English Meaning |
+| Line | Meaning |
 |---|---|
 | `m1, m2 = sorted(DECISION_OPPORTUNITIES)` | Unpacks the two checkpoints into `m1 = 45` and `m2 = 60` in sorted order. |
-| `data_transcripts[dftype]["end_time"] < m` | Filters to only include utterances that *finished before* the checkpoint. We cannot use words spoken after the decision point — that would be cheating. |
+| `data_transcripts[dftype]["end_time"] < m` | Filters to only include utterances that *finished before* the checkpoint. We cannot use words spoken after the decision point. |
 | `groupby("conversation_id")["transcript"].apply(lambda x: '\n'.join(x))` | Collects all speech turns for each conversation and joins them into one block of text, separated by new lines — like assembling a readable transcript. |
 
-> **Management insight:** This is the data discipline equivalent of saying "at 45 seconds, what did we *actually know*?" The agent must make its decision with only the information available at that moment.
+> **Code Logic:**
+>  - This is equivalent of saying "at 45 seconds, what do we *actually know*?"
+>  - The agent must make its decision with only the information available at that moment.
 
 ---
 
@@ -126,26 +123,28 @@ def convert_to_state(transcript, t):
     return state
 ```
 
-**What it does:** Formats each transcript snapshot into a natural-language question the AI model can read and answer.
+**What it does:** Formats each transcript snapshot into a natural-language question (prompt) the LLM can read and answer.
 
 **Line-by-line:**
 
-| Line | Plain-English Meaning |
+| Line | Meaning |
 |---|---|
-| `"Below is the first " + str(t) + " seconds..."` | Provides the AI with context — it knows it is reading only the first 45 or 60 seconds of a call. |
+| `"Below is the first " + str(t) + " seconds..."` | Provides the LLM with context — it knows it is reading only the first 45 or 60 seconds of a call. |
 | `transcript` | The actual conversation text is inserted here. |
-| `"Will this call end in a sale (respond with 'yes' or 'no'):"` | The question the AI must answer. The model is being asked to predict the final outcome from partial information. |
+| `"Will this call end in a sale (respond with 'yes' or 'no'):"` | The question the LLM must answer. The model is being asked to predict the final outcome from partial information. |
 
-> **Management insight:** This is called a *prompt* in AI terminology. It translates a data row into a question written in plain English that the LLM can understand — exactly as you might brief a consultant.
+> **Code Logic:**
+>  - The code builds the *prompt* that is subsequently fed to the LLM. This is the *feedstock* for training and testing the model subsequently.
+>  - Each of these *prompt* becomes the *state* for which the model is asked to choose an *act* — quit or wait — in the subsequent code block based on a reward function.
 
 ---
 
-### Block 6 · Computing the Optimal Decision at Each Checkpoint *(most important block)*
+### Block 6 · Computing the Optimal Decision at Each Checkpoint or *state-act* pairs *(most important block)*
 
 ```python
-df["rq" + str(m1)] = -m1 * COST_PER_UNIT_TIME                    # reward if quit at 45s
+df["rq" + str(m1)] = -m1 * COST_PER_UNIT_TIME                    # reward if salesperson quits at 45s
 
-df["rq" + str(m2)] = df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME \
+df["rq" + str(m2)] = df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME \ #rew
                    * (df["duration"] <= m2) \
                    - df["duration"].apply(lambda x: min(m2, x)) * COST_PER_UNIT_TIME
 
@@ -161,28 +160,42 @@ df["max_reward"] = df[["rq45", "rq60", "rc60"]].max(axis=1)
 
 | Strategy Column | Meaning | Reward Formula |
 |---|---|---|
-| `rq45` | Quit at 45 seconds | −45 × 0.1 = **−£4.50** always (no sales possible) |
-| `rq60` | Wait to 60s, then quit | Sale benefit (if call ≤ 60s long) minus cost of time |
-| `rc60` | Never quit — let it run | Full sale benefit minus total call duration cost |
+| `rq45` | Quit at 45 seconds | −45 × 0.1 = **−$4.50** always (fixed cost, no sales benefit) |
+| `rq60` | Wait to 60s, then quit | Sale benefit (if call ≤ 60s long) minus cost of time = `sale × 10 × (duration ≤ 60) − min(60, duration) × 0.1` |
+| `rc60` | Never quit — let it run | Full sale benefit minus total call duration cost = sale × 10 − duration × 0.1|
 
 **Line-by-line:**
 
-| Line | Plain-English Meaning |
+| Line | Meaning |
 |---|---|
-| `-m1 * COST_PER_UNIT_TIME` | Quitting at 45 seconds always costs exactly −£4.50. There is no benefit because you end before a sale can be confirmed. |
-| `df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME` | If the call *would have* ended in a sale, credit the full £10 benefit. If not, this term is zero. |
+| `-m1 * COST_PER_UNIT_TIME` | Quitting at 45 seconds always costs exactly −$4.50. There is no benefit because you end before a sale can be confirmed. |
+| `df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME` | If the call *would have* ended in a sale, credit the full $10 benefit. If not, this term is zero. |
 | `* (df["duration"] <= m2)` | The sale benefit only applies if the call actually finished by the 60s mark — you cannot claim a sale from a call you hung up on. |
-| `df[["rq45", "rq60", "rc60"]].max(axis=1)` | For each call, picks the *highest reward* among the three strategies. That becomes the label: whatever strategy maximised reward is what the AI should learn to do. |
+| `df[["rq45", "rq60", "rc60"]].max(axis=1)` | For each call, picks the *highest reward* among the three strategies. That becomes the label: whatever strategy maximised reward is what the LLM should learn to do. |
 
-**Action labels assigned from max reward:**
+**Example:** Reward Calculation
 
-```python
-df.loc[df["max_reward"] == df["rq45"], "a45"] = "no"   # quit at 45, quit at 60
-df.loc[df["max_reward"] == df["rq60"], "a45"] = "yes"  # wait at 45, quit at 60
-df.loc[df["max_reward"] == df["rc60"], "a45"] = "yes"  # wait at 45, wait at 60
-```
+1) Call Duration = 53s, Cutoff = 60s
 
-> **Management insight:** This step answers: *"With the benefit of hindsight, what should have been done?"* It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
+- Time cost incurred = \(\min(60,53) \times 0.01 = 0.53\)
+
+| Call Duration | Outcome | Benefit | Time Cost | Reward |
+|---|---|---|---|---|
+| 53s | Sale | 1 | 0.53 | **0.47** |
+| 53s | No Sale | 0 | 0.53 | **-0.53** |
+
+2) Why the Indicator \((duration \le m_2)\) Is Used
+
+This term ensures the sale reward is counted **only if the sale occurs before the stopping cutoff**.
+
+| Call Duration | Sale Occurs? | Cutoff \(m_2\) | Indicator \((duration \le m_2)\) | Benefit Counted? |
+|---|---|---|---|---|
+| 53s | Yes | 60s | 1 | Yes |
+| 75s | Yes | 60s | 0 | No (agent would have quit) |
+| 75s | No | 60s | 0 | No |
+
+> **Code Logic:**
+>  - This step answers: *"With the benefit of hindsight, what should have been done?"* It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
 
 ---
 
