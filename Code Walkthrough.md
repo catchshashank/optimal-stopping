@@ -1,4 +1,4 @@
-# Optimal Stopping in Sales Conversations: Code Walkthrough
+# Code Walkthrough: Optimal Stopping in Sales Conversations
 
 > **What this notebook does:** It trains an AI agent to decide, during a live sales call, whether to keep the salesperson on the line or end the call early — because continuing a doomed call wastes money. The notebook uses a technique called *Behavioral Cloning*: it first figures out, from historical data, what the *correct* decision would have been at each moment, and then teaches a large language model (LLM) to replicate those correct decisions.
 
