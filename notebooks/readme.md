@@ -1,0 +1,2 @@
+- The notebooks directory contains the original, replication, and extension notebooks of the optimal-stopping paper by Manzoor, Ascarza, and Netzer (2025).
+- It also contains markdown documents detailing the code implementation, model learning, and backward induction process.
