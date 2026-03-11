@@ -18,9 +18,7 @@ DECISION_OPPORTUNITIES = [45, 60]
 
 **What it does:** This block defines three critical business parameters.
 
-**Line-by-line:**
-
-| Line | Meaning |
+| Code | Meaning |
 |---|---|
 | `COST_PER_UNIT_TIME = 0.1` | **Business rule:** Every second a salesperson stays on a call costs $0.10 (or whatever currency unit). This is the "price of time." |
 | `BENEFIT_PER_POSITIVE_OUTCOME = 10.0` | **Business rule:** A completed sale is worth $10. So a sale must offset the time cost — creating a real financial trade-off. |
@@ -48,9 +46,7 @@ diarized_conversations["duration"] = diarized_conversations.groupby(
 
 **What it does:** Downloads a dataset of synthetic sales calls and creates two new summary columns.
 
-**Line-by-line:**
-
-| Line | Meaning |
+| Code | Meaning |
 |---|---|
 | `diarized_conversations["is_sale"] = ...` | Adds a new column: 1 if the call resulted in a sale, 0 if not. This is the ultimate **outcome label** the model needs to learn from. |
 | `lambda x: 1 if x == "sale" else 0 ...` | A one-line rule applied to every row: "if the outcome says 'sale', write 1; if 'no sale', write 0; otherwise leave blank." |
@@ -98,9 +94,7 @@ for m in [m1, m2]:
 
 **What it does:** For every conversation, takes a "photograph" of the transcript at the 45-second mark and another at the 60-second mark — capturing only what has been said *so far*.
 
-**Line-by-line:**
-
-| Line | Meaning |
+| Code | Meaning |
 |---|---|
 | `m1, m2 = sorted(DECISION_OPPORTUNITIES)` | Unpacks the two checkpoints into `m1 = 45` and `m2 = 60` in sorted order. |
 | `data_transcripts[dftype]["end_time"] < m` | Filters to only include utterances that *finished before* the checkpoint. We cannot use words spoken after the decision point. |
@@ -125,9 +119,7 @@ def convert_to_state(transcript, t):
 
 **What it does:** Formats each transcript snapshot into a natural-language question (prompt) the LLM can read and answer.
 
-**Line-by-line:**
-
-| Line | Meaning |
+| Code | Meaning |
 |---|---|
 | `"Below is the first " + str(t) + " seconds..."` | Provides the LLM with context — it knows it is reading only the first 45 or 60 seconds of a call. |
 | `transcript` | The actual conversation text is inserted here. |
@@ -164,42 +156,67 @@ df["max_reward"] = df[["rq45", "rq60", "rc60"]].max(axis=1)
 | `rq60` | Wait to 60s, then quit | Sale benefit (if call ≤ 60s long) minus cost of time = `sale × 10 × (duration ≤ 60) − min(60, duration) × 0.1` |
 | `rc60` | Never quit — let it run | Full sale benefit minus total call duration cost = sale × 10 − duration × 0.1|
 
-**Line-by-line:**
-
-| Line | Meaning |
+| Code | Meaning |
 |---|---|
 | `-m1 * COST_PER_UNIT_TIME` | Quitting at 45 seconds always costs exactly −$4.50. There is no benefit because you end before a sale can be confirmed. |
 | `df["is_sale"] * BENEFIT_PER_POSITIVE_OUTCOME` | If the call *would have* ended in a sale, credit the full $10 benefit. If not, this term is zero. |
 | `* (df["duration"] <= m2)` | The sale benefit only applies if the call actually finished by the 60s mark — you cannot claim a sale from a call you hung up on. |
 | `df[["rq45", "rq60", "rc60"]].max(axis=1)` | For each call, picks the *highest reward* among the three strategies. That becomes the label: whatever strategy maximised reward is what the LLM should learn to do. |
 
-**Example:** Reward Calculation
+### Optimal Action Assignment: Three Cases
 
-1) Call Duration = 53s, Cutoff = 60s
+#### Case 1 — Quit Early (`rq45` is max)
 
-- Time cost incurred = \(\min(60,53) \times 0.01 = 0.53\)
+```python
+df.loc[df["max_reward"]==df["rq45"], "a45"] = "no"
+df.loc[df["max_reward"]==df["rq45"], "a60"] = "no"
+```
 
-| Call Duration | Outcome | Benefit | Time Cost | Reward |
-|---|---|---|---|---|
-| 53s | Sale | 1 | 0.53 | **0.47** |
-| 53s | No Sale | 0 | 0.53 | **-0.53** |
+**Call:** 120s duration, no sale
 
-2) Why the Indicator \((duration \le m_2)\) Is Used
+| Strategy | Calculation | Reward |
+|---|---|---:|
+| Quit at 45s (`rq45`) | 0 − 45 × 0.1 | **−4.50** ✓ |
+| Quit at 60s (`rq60`) | 0 − 60 × 0.1 | −6.00 |
+| Never quit (`rc60`) | 0 − 120 × 0.1 | −12.00 |
 
-This term ensures the sale reward is counted **only if the sale occurs before the stopping cutoff**.
+> No sale possible — cut losses at the earliest checkpoint. Both `a45` and `a60` = `"no"`.
 
-| Call Duration | Sale Occurs? | Cutoff \(m_2\) | Indicator \((duration \le m_2)\) | Benefit Counted? |
-|---|---|---|---|---|
-| 53s | Yes | 60s | 1 | Yes |
-| 75s | Yes | 60s | 0 | No (agent would have quit) |
-| 75s | No | 60s | 0 | No |
+#### Case 2 — Wait Then Quit (`rq60` is max) → a45 = `"yes"`, a60 = `"no"`
+
+```python
+df.loc[df["max_reward"]==df["rq45"], "a45"] = "no"
+df.loc[df["max_reward"]==df["rq45"], "a60"] = "no"
+```
+
+**Call:** 55s duration, sale
+
+| Strategy | Calculation | Reward |
+|---|---|---:|
+| Quit at 45s (`rq45`) | 0 − 45 × 0.1 | −4.50 |
+| Quit at 60s (`rq60`) | 10 × (55 ≤ 60) − 55 × 0.1 | **+4.50** ✓ |
+| Never quit (`rc60`) | 10 − 55 × 0.1 | +4.50 |
+
+> Sale completes at 55s — before 60s checkpoint. Stay through 45s to capture it, then `"no"` at 60s (call already over). `a45` = `"yes"`, `a60` = `"no"`.
+
+#### Case 3 — Never Quit (`rc60` is max) → a45 = `"yes"`, a60 = `"yes"`
+**Call:** 90s duration, sale
+
+| Strategy | Calculation | Reward |
+|---|---|---:|
+| Quit at 45s (`rq45`) | 0 − 45 × 0.1 | −4.50 |
+| Quit at 60s (`rq60`) | 10 × (90 ≤ 60) − 60 × 0.1 | −6.00 |
+| Never quit (`rc60`) | 10 − 90 × 0.1 | **+1.00** ✓ |
+
+> Sale completes at 90s — past both checkpoints. Quitting at either point destroys the sale. Stay through both. `a45` = `"yes"`, `a60` = `"yes"`.
 
 > **Code Logic:**
->  - This step answers: *"With the benefit of hindsight, what should have been done?"* It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
+>  - This step answers: *"With the benefit of hindsight, what should have been done?"*
+>  - It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
 
 ---
 
-## PART 2 — Training the AI Model and Evaluating Results
+## PART 2 — Training the LLM and Evaluating Results
 
 ---
 
@@ -216,11 +233,8 @@ tokenizer.padding_side = 'left'
 
 **What it does:** Downloads and loads Meta's Llama 3.2 language model (3 billion parameters) — a powerful, open-source AI that reads and generates text.
 
-**Line-by-line:**
-
-| Line | Plain-English Meaning |
+| Code | Meaning |
 |---|---|
-| `huggingface_hub.login(token=HF_TOKEN)` | Authenticates with the AI model library — like showing your membership card to access a specialist database. |
 | `"meta-llama/Llama-3.2-3B"` | Specifies the base (un-customised) version of Llama — the "blank slate" that will be trained on sales call decisions. |
 | `AutoTokenizer.from_pretrained(...)` | Loads the *tokeniser* — the system that converts human text into the numerical codes the AI processes internally. |
 | `AutoModelForCausalLM.from_pretrained(...)` | Loads the actual neural network weights. "CausalLM" means it is a text-generation model that reads text left to right and predicts what comes next. |
@@ -244,15 +258,15 @@ def tokenize_fn(example, add_label):
 
 **What it does:** Converts each (prompt, action) pair into the number sequences the model trains on, and crucially *masks* the prompt so the model only learns from the action word.
 
-**Line-by-line:**
-
-| Line | Plain-English Meaning |
+| Code | Meaning |
 |---|---|
 | `tokenizer.bos_token + example["prompt"]` | Adds a special "beginning of sequence" marker before the transcript prompt — like a formal salutation that signals the start of a document. |
 | `tokenizer.encode(example["completion"] + tokenizer.eos_token)` | Converts the action word ("yes" or "no") plus an "end of sequence" marker into numbers. |
-| `"labels": [-100] * len(encoded_prompt) + encoded_label` | **The critical masking step.** The value −100 tells the training algorithm: "ignore this token — do not calculate error for these positions." Only the action tokens ("yes"/"no" + end marker) contribute to the learning signal. |
+| `"labels": [-100] * len(encoded_prompt) + encoded_label` | **The critical masking step.** The value −100 tells the training algorithm: "ignore this token — do not calculate error for these positions." Only the action tokens ("yes"/"no" + end marker) contribute to the learning signal, not the input prompt. |
 
-> **Management insight:** Without label masking, the model would waste effort learning to predict the *question* rather than the *answer*. Masking focuses 100% of learning on the decision: "given this transcript, should we quit?" This is equivalent to marking an exam where only the answer box is graded, not the working shown in the margin.
+> **Code Logic:**
+>  - Without label masking, the model would waste effort learning to predict the *question* rather than the *answer*.
+>  - Masking focuses 100% of learning on the decision: "given this transcript, should we quit?" This is equivalent to marking an exam where only the answer box is graded, not the working shown in the margin.
 
 ---
 
@@ -284,7 +298,7 @@ trainer.train()
 
 **Key settings explained:**
 
-| Setting | Value | Plain-English Meaning |
+| Setting | Value | Meaning |
 |---|---|---|
 | `num_train_epochs=10` | Up to 10 | Maximum number of complete passes through the training data. Training may stop earlier if the model converges. |
 | `learning_rate=1e-4` | 0.0001 | How large a step the model takes when adjusting its internal parameters after each error. Too large = unstable learning; too small = very slow. |
@@ -294,7 +308,7 @@ trainer.train()
 | `bf16=True` | — | Uses a memory-efficient number format (bfloat16) that halves GPU memory use with minimal accuracy loss. Requires a modern GPU. |
 | `EarlyStoppingCallback(patience=1)` | — | If validation AUC does not improve for 1 full epoch, training stops automatically — preventing over-fitting and saving compute time. |
 
-> **Management insight:** In practice, training stopped at Epoch 4 when validation AUC reached 1.00 — perfect separation of "quit" vs. "wait" calls. The model effectively mastered the decision problem.
+> **Code Logic:** In practice, training stopped at Epoch 4 when validation AUC reached 1.00 — perfect separation of "quit" vs. "wait" calls. The model effectively mastered the decision problem.
 
 ---
 
@@ -313,16 +327,15 @@ logprobs = torch.log_softmax(scores, dim=-1)
 
 **What it does:** Runs the trained model on unseen calls and records both its verbal answer ("yes"/"no") and its *confidence score* for that answer.
 
-**Line-by-line:**
-
-| Line | Plain-English Meaning |
+| Code | Meaning |
 |---|---|
 | `max_new_tokens=2` | The model is only allowed to generate 2 new words — we expect just "yes" or "no" followed by an end marker. |
 | `do_sample=False` | Uses *greedy decoding*: always picks the single highest-probability word. This makes the output deterministic and consistent — the same call always gets the same answer. |
-| `temperature=None, top_p=None, top_k=None` | Disables all randomness-injection mechanisms. The model gives its most confident, unambiguous answer each time. |
-| `output_scores=True` | Returns the raw probability numbers for every possible word at the decision point — not just the chosen word. |
-| `torch.log_softmax(scores, dim=-1)` | Converts the raw model scores into proper probabilities (logarithmic scale). From these, we extract the probability assigned specifically to "yes" — the model's confidence that the call will end in a sale. |
+| `temperature=None, top_p=None, top_k=None` | Disables all randomness-injection mechanisms. The model gives its most confident, unambiguous answer each time. *Temperature* rescales the logits before softmax. *Top-k sampling* truncates the distribution to only the k highest-probability tokens, then resamples from those k options. *Top-p (nucleus) sampling* keeps the smallest set of tokens whose cumulative probability exceeds p.|
+| `output_scores=True` | Returns the raw unnormalised probability score for the output `yes` or `no` at the decision point. |
+| `torch.log_softmax(scores, dim=-1)` | Normalizes the probability scores (logarithmic scale). From these, we extract the probability assigned specifically to "yes" — the model's confidence that the call will end in a sale. |
 
+**Key insight:** The model never truly outputs just `yes` or `no` — it outputs a full probability distribution over its entire vocabulary at every step. These four settings together ensure we capture and correctly interpret that distribution, turning a language model into a calibrated confidence estimator.
 ---
 
 ### Block 11 · Computing Confidence Scores (`prob_yes`)
@@ -340,7 +353,7 @@ predictions.loc[predictions["response"] != "yes", "prob_yes"] = 1.0 - prediction
 | If the model said **"yes"**: `prob_yes = prob` | The model's confidence in "yes" is taken directly. |
 | If the model said **"no"**: `prob_yes = 1 − prob` | The model was confident in "no" — so its confidence in "yes" is the complement. |
 
-> **Management insight:** This gives us a continuous score (e.g., 0.03 = very likely to fail, 0.91 = very likely to succeed) rather than just a binary word. This score is what the threshold system uses to make the final quit/wait decision.
+> **Code Logic:** This gives us a continuous score (e.g., 0.03 = very likely to fail, 0.91 = very likely to succeed) rather than just a binary word. This score is what the threshold system uses to make the final quit/wait decision.
 
 ---
 
