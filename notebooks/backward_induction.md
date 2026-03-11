@@ -1,11 +1,11 @@
-## **Backward Induction and Block 12: Finding Optimal Threhold Values**
+# Backward Induction and Block 12: Finding Optimal Threhold Values
 ---
 
-### **Backward Induction**
+## **Backward Induction**
 
 ---
 
-#### The Core Idea
+### The Core Idea
 
 Backward induction is a problem-solving strategy borrowed from **game theory and
 dynamic programming**. The central insight is simple:
@@ -20,22 +20,7 @@ decision. And so on, all the way back to the first decision.
 
 ---
 
-#### A Familiar Analogy — Chess
-
-A chess player using backward induction does not ask:
-*"What is the best move right now?"*
-
-They ask:
-*"What board positions lead to checkmate? Now, what moves lead to those positions?
-Now, what moves lead to those moves?"*
-
-They reason from the **end state backwards** to the current move. The same logic
-applies here — start from the last checkpoint (60s) and reason backwards to the
-first (45s).
-
----
-
-#### Why Sequential Decisions Break Simple Search
+### Why Sequential Decisions Break Simple Search
 
 Suppose you have two decisions, each with B = 10,000 possible values. If the
 decisions were **independent** — meaning the first choice does not affect the
@@ -63,7 +48,7 @@ here — not an approximation, but the provably correct solution.
 
 ---
 
-#### The General Framework
+### The General Framework
 
 Backward induction applies whenever a problem has these three properties:
 
@@ -85,7 +70,7 @@ complexity O(Bᵀ) to linear complexity O(B × T).
 
 ---
 
-#### Step-by-Step Logic Applied Here
+### Step-by-Step Logic Applied Here
 
 **Step 1 — Solve the last decision (60s checkpoint)**
 
@@ -111,7 +96,7 @@ average reward across the full two-checkpoint simulation.
 
 ---
 
-#### What Backward Induction Is NOT Doing Here
+### What Backward Induction Is NOT Doing Here
 
 It is worth being explicit about what this approach does *not* assume:
 
@@ -124,11 +109,11 @@ It is worth being explicit about what this approach does *not* assume:
 
 ---
 
-### Block 12 — Finding Optimal Decision Thresholds: Backward Induction
+## Block 12 — Finding Optimal Decision Thresholds: Backward Induction
 
 ---
 
-#### What Problem Are We Solving?
+### What Problem Are We Solving?
 
 After training, the model outputs a continuous score — `prob_yes` ∈ [0, 1] — for
 every call at every checkpoint. But the agent needs to make a **hard binary
@@ -146,7 +131,7 @@ of prediction accuracy, but best in terms of **actual financial reward**.
 
 ---
 
-#### Why Two Thresholds?
+### Why Two Thresholds?
 
 There are two decision points — 45s and 60s — and each needs its own threshold
 because the information available at each point is different:
@@ -159,7 +144,7 @@ is finding the best *combination* of both.
 
 ---
 
-#### Why Not Search Both Together?
+### Why Not Search Both Together?
 
 The naive approach would be a **joint grid search**: try every combination of
 λ₁ and λ₂.
@@ -180,7 +165,7 @@ A **5,000× speedup**.
 
 ---
 
-#### Step 1 — Fix the 60s Threshold First
+### Step 1 — Fix the 60s Threshold First
 ```python
 m = m1
 for candidate_threshold in np.linspace(min_prob, max_prob, num=10000):
@@ -215,7 +200,7 @@ kept as `best_threshold_at_m[m2]`.
 
 ---
 
-#### Step 2 — Fix the 45s Threshold With 60s Locked In
+### Step 2 — Fix the 45s Threshold With 60s Locked In
 ```python
 m = m2
 for candidate_threshold in np.linspace(min_prob, max_prob, num=10000):
@@ -242,7 +227,7 @@ filter out before they even get to 60s.
 
 ---
 
-#### Inside `simulate_threshold` — Four Buckets
+### Inside `simulate_threshold` — Four Buckets
 ```python
 def simulate_threshold(threshold_m1, threshold_m2, df):
 
@@ -282,7 +267,7 @@ assert len(bucket1) + len(bucket2) + len(bucket3) + len(bucket4) == len(df)
 
 ---
 
-#### Computing Reward Inside Each Bucket
+### Computing Reward Inside Each Bucket
 ```python
 total_sales = calls_continued_at_m1_and_ended["is_sale"].sum() + \
               calls_continued_at_m2["is_sale"].sum()
@@ -317,7 +302,7 @@ simply because the validation set is large or small — it represents reward
 
 ---
 
-#### A Concrete Numerical Example
+### A Concrete Numerical Example
 
 Suppose the validation set has 5 calls and we test threshold λ₁ = 0.4, λ₂ = 0.3:
 
@@ -339,7 +324,7 @@ validation set is selected as the final policy.
 
 ---
 
-#### Why Optimise Reward and Not Accuracy?
+### Why Optimise Reward and Not Accuracy?
 
 A threshold optimised for **classification accuracy** asks:
 *"does the agent correctly predict sale vs. no-sale?"*
@@ -360,7 +345,7 @@ objective for a business deployment.
 
 ---
 
-#### The Full Picture
+### The Full Picture
 ```
 Trained model outputs prob_yes ∈ [0,1] for every call at every checkpoint
         ↓
