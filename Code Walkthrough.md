@@ -163,6 +163,10 @@ df["max_reward"] = df[["rq45", "rq60", "rc60"]].max(axis=1)
 | `* (df["duration"] <= m2)` | The sale benefit only applies if the call actually finished by the 60s mark — you cannot claim a sale from a call you hung up on. |
 | `df[["rq45", "rq60", "rc60"]].max(axis=1)` | For each call, picks the *highest reward* among the three strategies. That becomes the label: whatever strategy maximised reward is what the LLM should learn to do. |
 
+> **Code Logic:**
+>  - This step answers: *"With the benefit of hindsight, what should have been done?"*
+>  - It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
+
 ### Optimal Action Assignment: Three Cases
 
 #### Case 1 — Quit Early (`rq45` is max)
@@ -209,10 +213,6 @@ df.loc[df["max_reward"]==df["rq45"], "a60"] = "no"
 | Never quit (`rc60`) | 10 − 90 × 0.1 | **+1.00** ✓ |
 
 > Sale completes at 90s — past both checkpoints. Quitting at either point destroys the sale. Stay through both. `a45` = `"yes"`, `a60` = `"yes"`.
-
-> **Code Logic:**
->  - This step answers: *"With the benefit of hindsight, what should have been done?"*
->  - It is retrospective optimisation — using known outcomes to label past decisions, creating the training data without any costly human annotation.
 
 ---
 
