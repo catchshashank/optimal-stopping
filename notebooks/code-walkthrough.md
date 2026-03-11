@@ -56,6 +56,15 @@ diarized_conversations["duration"] = diarized_conversations.groupby(
 >  - The dataset is in *diarized* format — each row is a separate speech turn labelled by speaker ("Speaker 0" = salesperson, "Speaker 1" = customer).
 >  - Every speech turn is timestamped and labelled by the final outcome, so that the model can learn from each partial transcript prefix whether the reward-maximizing action is to "wait" or "quit", given the call’s eventual outcome and timing.
 
+#### **Outcome Labels in Paper:**
+
+The outcome label (is_sale or not) comes from the CRM / call logging system at the firm, not from any model or annotation process. The paper describes this process partially in `Section 4.1`:
+
+> In addition, we observe the salesperson’s identifier, the call outcome (i.e., whether the call resulted in a sale based on the consumer
+> confirming the energy contract, hereafter call success), and metadata such as the call start and end times.
+
+So is_sale = 1 was recorded when the consumer verbally confirmed the energy contract during the call. This was captured automatically by the firm's operational system alongside the transcript. The dataset also includes the salesperson identifier and call start/end times as co-recorded metadata.
+
 ---
 
 ### Block 3 · Splitting Data into Train, Validation, and Test Sets
