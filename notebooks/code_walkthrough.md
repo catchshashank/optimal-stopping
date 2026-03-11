@@ -310,6 +310,8 @@ trainer.train()
 
 > **Code Logic:** In practice, training stopped at Epoch 4 when validation AUC reached 1.00 — perfect separation of "quit" vs. "wait" calls. The model effectively mastered the decision problem.
 
+For more refer to the [Model Learning](model_learning.md) file.
+
 ---
 
 ### Block 10 · Generating Predictions on New Calls
@@ -361,7 +363,7 @@ predictions.loc[predictions["response"] != "yes", "prob_yes"] = 1.0 - prediction
 
 ### Block 12 · Finding Optimal Decision Thresholds: Backward Induction
 
-See the [Backward Induction](notebooks/backward_induction.md) section.
+See the [Backward Induction](backward_induction.md) file.
 ```
 
 ### Block 13 · Final Results
@@ -383,4 +385,4 @@ print("Time saved (%):", (total_time_noagent - total_time_agent) / total_time_no
 
 > **Code Logic:** The agent sacrifices one sale out of 25 to save 8.5% of total call time. That freed-up time can be reallocated to additional calls, which in expectation generates *more* sales than the one lost. This is the core business case: intelligent early stopping is better than letting every call run regardless of signal.
 
-> **Bottom line:** This notebook demonstrates that a general-purpose language model — with no prior knowledge of sales — can be fine-tuned using business logic alone to become a reliable decision-support agent, saving meaningful time and cost with minimal sales impact.
+---
