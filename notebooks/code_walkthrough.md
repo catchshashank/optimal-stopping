@@ -310,7 +310,7 @@ trainer.train()
 
 > **Code Logic:** In practice, training stopped at Epoch 4 when validation AUC reached 1.00 — perfect separation of "quit" vs. "wait" calls. The model effectively mastered the decision problem.
 
-For more refer to the [Model Learning](model_learning.md) file.
+For more refer to the [Model Learning](model_learning.md) document.
 
 ---
 
@@ -363,7 +363,7 @@ predictions.loc[predictions["response"] != "yes", "prob_yes"] = 1.0 - prediction
 
 ### Block 12 · Finding Optimal Decision Thresholds: Backward Induction
 
-See the [Backward Induction](backward_induction.md) file.
+See the [Backward Induction](backward_induction.md) document.
 ```
 
 ### Block 13 · Final Results
