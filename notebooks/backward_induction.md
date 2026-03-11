@@ -1,4 +1,4 @@
-# Backward Induction and Block 12: Finding Optimal Threhold Values
+# Backward Induction and Block 12: Optimal Threhold Values
 ---
 
 ## **Backward Induction**
