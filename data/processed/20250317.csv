@@ -1,0 +1,613 @@
+conversation_id,speaker_id,start_time,end_time,text
+1,1,77.16000366,78.83999634, Thank you for calling.
+1,1,78.83999634,79.68000031, My name is Megan.
+1,1,79.68000031,80.68000031, How can I assist you today?
+1,0,80.68000031,81.59999847," Hey, Megan."
+1,0,81.59999847,82.44000244, Are you in sales?
+1,1,82.44000244,84," I am not, but I can get you over to them."
+1,1,84,85.87999725, Is it for the location?
+1,0,85.87999725,87.48000336, For the location.
+1,1,87.48000336,88.68000031," Yes, in one moment."
+1,0,88.68000031,89.51999664, Okay.
+1,1,89.51999664,90.36000061, Thank you for holding.
+1,1,90.36000061,91.19999695, This is Pamela.
+1,1,91.19999695,92.04000092, How can I help you?
+1,0,92.04000092,92.87999725," Hey, Pamela."
+1,0,92.87999725,93.72000122, I was first off calling to see
+1,0,93.72000122,95.44000244, if you guys have a car available.
+1,1,95.44000244,96.27999878, Okay.
+1,1,96.27999878,97.36000061, Is it new or pre-owned?
+1,0,97.36000061,99.12000275, It is brand new.
+1,1,99.12000275,99.95999908, Okay.
+1,1,99.95999908,101.0800018, Do you have a stock number?
+1,0,101.0800018,101.9599991," I do, whenever you're ready."
+1,1,101.9599991,102.8799973," Okay, I'm ready."
+1,0,102.8799973,107.8799973," It is going to be C as in cat, 251-984-95."
+1,1,108.4400024,109.2799988, All right.
+1,0,109.2799988,111.6800003, It's for 2025 Escalade Sport Platinum.
+1,1,111.6800003,112.5199966, Yep.
+1,1,112.5199966,113.3600006, Okay.
+1,1,113.3600006,114.7200012, That one's actually in transit at the moment.
+1,0,114.7200012,115.5599976, Okay.
+1,0,115.5599976,116.4000015, Is it available?
+1,1,116.4000015,117.7600021, It's not on the lot yet.
+1,1,117.7600021,119.4400024, That is a good question.
+1,0,119.4400024,120.2799988, I'm full of them.
+1,1,120,124, It is actually in... it's a f***ing vehicle.
+1,0,124,124.5, Okay.
+1,1,124.5,127, So let me get you over to somebody in Fort...
+1,0,127,127.5, Sure.
+1,1,127.5,129.5, And they should be able to answer that question for you.
+1,0,129.5,130, Okay.
+1,1,130,130.5, Hold on one second.
+1,1,130.5,132," This is Melissa, how can I help you?"
+1,0,132,135.5," Hey, I was just gonna see if you guys have a car available."
+1,1,135.5,136, Sure.
+1,0,136,138.5, If you can give me a... I can give you a stock number.
+1,1,138.5,140," Of course, that'll work."
+1,0,140,145," Yeah, it's C as in Cadillac, 251-984-95."
+1,0,145,148," The Escalade Sport Platinum, the ones in transit."
+1,1,148,150.5," Yeah, I was gonna see if that's first off even available."
+1,1,150.5,152, So it's not here yet.
+1,1,152,154.5, It should be here in the next week or two.
+1,1,154.5,157.5," But as far as I know, this one has somebody's name on it already."
+1,1,157.5,159.5, Sparmer.
+1,0,159.5,161, Are you guys doing orders on them?
+1,0,161,162.5, Do you guys have allocations on orders?
+1,1,162.5,164.5," Actually, we do are doing orders."
+1,1,164.5,169, I can get you over to one of the guys and they can put an order through.
+1,0,169,170.5," Sure, do you know..."
+1,0,170.5,172.5," Yeah, do I talk to them about pricing on it and everything?"
+1,1,172.5,173.5," Yeah, yeah."
+1,1,173.5,174.5, Just give me one moment.
+1,0,174.5,175, Okay.
+1,1,175,177.5, Let's see what I can...
+1,1,177.5,178.5, What's your first name?
+1,0,178.5,179, Tommy.
+1,1,179,180," And what's your last name, Tommy?"
+1,0,180,182.5," Mikula, M-I-K-U-L-A."
+1,1,182.5,183.5," Okay, one moment."
+1,0,183.5,184.5, Okay.
+1,1,184.5,186.5," Good afternoon, this is Grayson."
+1,1,186.5,188, Who do I have the pleasure of speaking with?
+1,0,188,190," Hey, this is Tommy."
+1,1,190,191.5," Hey, what's going on, Tommy? What can I do for you?"
+1,0,191.5,194.5," Hey, man, I was looking at a Cadillac Escalade"
+1,0,194.5,197.5, and I was hoping to figure out what kind of pricing you guys are doing on it
+1,0,197.5,199.5, and going from there.
+1,1,199.5,200.5," Okay, awesome."
+1,1,200.5,203.5, Are you here local in the state of Texas?
+1,0,203.5,204.5," I am in Texas, yeah."
+1,1,204.5,205.5," Okay, awesome."
+1,1,205.5,207, Have you shopped here before by any chance?
+1,0,207,208," I have not, no."
+1,1,208,211, And what Escalade model are you looking for?
+1,0,211,213, We're looking for a Sport Platinum.
+1,1,213,215, Sport Platinum ESV or short?
+1,0,215,216, Short.
+1,0,216,217, I wouldn't call myself short though.
+1,0,217,218," I'm 5'7""."
+1,0,218,221, Let's be real.
+1,1,221,225," Okay, so, I mean, we do a pretty easy price on there."
+1,1,225,227, It's just whatever you want to build it to.
+1,1,227,230, And then we also offer a Frank Kent package.
+1,1,230,234," It includes ceramic window tint all around,"
+1,1,234,236," door edge guards, door cup guards."
+1,1,236,239, Then we also do a paint correction whenever it comes in
+1,1,239,241, because they ship it on and off.
+1,1,240,244.1199999, an open trailer from GM and then a full ceramic coat
+1,1,244.1199999,247.5999999," around the vehicle and that's a $10,000 package right there."
+1,0,247.5999999,250.1199999," Holy moly, smack me upside the head, silly."
+1,0,250.1199999,252.2799997," $10,000 package?"
+1,1,252.2799997,253.3599997," Yes, sir."
+1,0,253.3599997,255.5600004," Oh my goodness, I thought you guys said it was easy."
+1,0,255.5600004,257.8799992," My heart, I'm getting old."
+1,1,257.8799992,260.3600006," Pretty much all over the country,"
+1,1,260.3600006,264," they're doing about $20,000 to $50,000 on their packages."
+1,0,264,265.3999996, On the V's maybe?
+1,0,265.3999996,267.1200008," I'm not trying to get a V, did you not hear me?"
+1,0,267.1200008,268.6800003," I don't want a V, I don't need a V."
+1,1,268.7199993,269.8400002," Yes, sir, Sport Platinum."
+1,1,269.8400002,272.7200012," The V's are a $40,000 to $50,000 package"
+1,1,272.7200012,274.7200012," throughout the country, but I'll work with you."
+1,0,274.7200012,276.4399986," Well, the good news is I don't need any of that stuff."
+1,0,276.4399986,277.3600006, I just want the car.
+1,1,277.3600006,280.3199997," Gotcha, I can see if I can arrange something for you."
+1,1,280.3199997,281.7200012, When would you like to place the order?
+1,0,281.7200012,284.4399986," I mean, we're looking to place it sooner rather than later."
+1,0,284.4399986,285.9199982, What's your res's build time right now?
+1,1,285.9199982,288.7599983, So let's say you place the order today.
+1,1,288.7599983,292.5200005, I would say within four months on the Sport Platinum.
+1,0,292.5200005,293.5600014," Four months on the Sport Platinum, okay."
+1,1,293.5600014,297.6399994, You probably had a customer order one three months ago.
+1,1,297.6800003,301.0400009, Car's about to come in in about three or four weeks.
+1,1,301.0400009,302.4000015," So yeah, about four months."
+1,0,302.4000015,303.9599991," Okay, yeah, I mean, you can let,"
+1,0,303.9599991,306.7600021," yeah, I don't really want to pay 10K of markup on it."
+1,0,306.7600021,307.9199982, I don't need any of that stuff.
+1,0,307.9199982,308.8399963, I don't need you to throw it in.
+1,0,308.8399963,309.6800003, I just don't need it.
+1,1,309.6800003,312.9199982," Gotcha, what is a good phone number for you?"
+1,0,312.9199982,314.2799988," Yeah, a phone number is."
+1,0,314.2799988,315.5199966," Oh, ****."
+1,1,315.5199966,316.3600006, Yeah.
+1,1,316.3600006,317.6399994," Alrighty, let me go talk with my managers"
+1,1,317.6399994,320.4400024," and then when would you, I mean,"
+1,1,320.4400024,322.0800018, I can order it over the phone with you
+1,1,322.0800018,323.7600021, or you can come in and order it.
+1,1,323.7600021,324.6800003, It's just kind of up to you.
+1,1,324.6800003,325.5199966, What are you thinking?
+1,0,325.5199966,328.4000015," Yeah, I mean, let's figure out the price first."
+1,0,328.4000015,330.6399994," You know, let's get through that."
+1,0,330.6399994,332.3199997, But we're open to put the order in ASAP
+1,0,332.3199997,333.6399994, if we can get this all wrapped up.
+1,1,333.6399994,335.8000031," Okay, and your first name is Tommy, right?"
+1,0,335.8000031,336.6399994," Tommy, yeah."
+1,1,336.6399994,337.4800034," Okay, awesome."
+1,1,337.4800034,339.6399994," If you can give me three or five minutes,"
+1,1,339.6399994,340.4800034, I can give you a call back.
+1,1,340.4800034,341.3199997, Does that sound good?
+1,0,341.3199997,342.1600037," Okay, sounds good."
+1,1,342.1600037,343.3199997," All right, I'll give you a call in a minute."
+1,0,343.3199997,344.1600037," All right, bye."
+2,1,344.1600037,346, Thank you for calling Cadillac.
+2,1,346,347.1200027, This is Mary in sales.
+2,1,347.1200027,347.9599991, How can I help you?
+2,0,347.9599991,351.5599976," Hey, Mary, I was gonna see if I could speak to sales."
+2,1,351.5599976,352.4000015, You've got it.
+2,0,352.4000015,353.4000015," Awesome, perfect."
+2,0,353.4000015,355.7600021," Hey, I just wanna see if you guys have a car available."
+2,1,355.7600021,356.6800003, Okay.
+2,0,356.6800003,358.4000015, I have a stock number whenever you're ready.
+2,1,358.4000015,359.2399979, I'm ready.
+2,0,360,368.1599998," K is in cat, A is in kangaroo, A is in apple, 2 5 1 5 0."
+2,1,368.1599998,370.96, What is it an Escalade?
+2,1,370.96,378.7999992," I have one available Escalade, it's an Escalade ESV and it is a Sport Platinum and that is"
+2,1,378.7999992,379.7999992, the only one I have.
+2,0,379.7999992,385.7199993," Okay, I wasn't looking for any of this meat, but I'm not, I mean I'm in Texas, I heard"
+2,0,385.7199993,389.3600006," from one of my friends named Bearcat, you guys might have had one."
+2,1,390.3600006,392.4399986," Are you looking for a V, an Escalade V?"
+2,0,392.4399986,393.8800011," No, no, just an Escalade."
+2,0,393.8800011,396.6800003," I would take an ESV though, in theory."
+2,1,396.6800003,402.7999992," Well in theory that's the only one I have available is an Escalade V, or not a V, sorry,"
+2,1,402.7999992,403.7999992, ESV.
+2,1,403.7999992,408.9599991," I don't have any V's, I have no V's and I have no short wheelbase."
+2,1,408.9599991,415.6399994," Let me see, I don't even know that I've got any inbound that are available."
+2,0,415.6399994,416.6399994, That's totally fine.
+2,0,417.6399994,420.4399986," Yeah, I mean, would you guys be willing to sell the ESV?"
+2,1,420.4399986,422.4399986," Yeah, the ESV is available."
+2,0,422.4399986,423.4399986, What's the price on it?
+2,1,423.4399986,424.8399963, Are you coming here to pick it up?
+2,0,424.8399963,426.8799973, I'd probably be shipping it.
+2,1,426.8799973,430.2399979, I have one and it is the red one and it is...
+2,0,430.2399979,432.7600021," Oh, I won't do red, that won't work."
+2,0,432.7600021,435.0400009," Bummer, okay, I won't even worry about it then."
+2,0,435.0400009,436.0400009, No worries.
+2,1,436.0400009,437.0400009, Alright.
+2,0,437.0400009,438.0400009, Bearcat steered me wrong.
+2,1,438.0400009,439.0400009, No!
+2,1,439.0400009,447.3600006," Well, we had two available a day ago, but they go really fast."
+2,0,447.3600006,448.7600021," I get it, yeah."
+2,1,448.7600021,452.6800003," He may not have steered you wrong, it might just have been the case that they sold really"
+2,1,452.6800003,454.4400024," fast, which they do."
+2,0,454.4400024,459.1200027," That's fair, that's fair, I'm going to sold it, no, that's good, okay, no worries."
+2,0,459.1200027,461.1200027, I will keep on looking.
+2,1,461.1200027,466.4400024," I mean, sometimes people back out, I can get your info and let you know if that happens"
+2,1,466.4400024,467.4400024, or...
+2,0,468.4400024,471.1999969," No worries there, no worries there."
+2,0,471.1999969,472.1999969, Let me...
+2,0,472.1999969,473.1999969," I'll keep looking, I'll find one."
+2,0,473.1999969,474.1999969, Okay.
+2,1,474.1999969,475.1999969," Okay, sounds good."
+2,1,475.1999969,476.1999969," Alright, good luck."
+2,0,476.1999969,477.1999969, Talk to you later.
+2,1,477.1999969,478.1999969," Okay, you bet."
+1,1,480,481," Hey, Tommy."
+1,0,481,482," Hey, man."
+1,0,482,483, How's it going?
+1,1,483,484, Doing all right.
+1,0,484,485, Okay.
+1,1,485,490.5," So on the, yeah, you already said no on those two vehicles."
+1,1,490.5,493.9399996," So what we can do, we can order one for you."
+1,1,493.9399996,497.6599998, And would you be open to a half price on the protection package?
+1,0,497.6599998,501.1000004, I would be for a zero price on the protection package.
+1,1,501.1000004,507.1000004," I can see if I can lower it a little bit more, but we can't do a zero on the protection package."
+1,0,507.1000004,508.1000004, Yeah.
+1,0,508.1000004,511.1000004, I feel confident I can find somebody that can order it for me for zero.
+1,0,511.1000004,513.0999985, I'm just trying to buy in Dallas if I can.
+1,1,513.0999985,514.0999985, Gotcha.
+1,1,514.0999985,518.0999985," Well, I'd love to sell you a car, but unfortunately, just at this dealership, we're not doing that."
+1,1,518.0999985,520.0999985, I wish I could.
+1,0,520.0999985,521.0999985, Okay.
+1,0,521.0999985,522.0999985, Yeah.
+1,0,522.0999985,523.0999985, That's a tough cookie.
+1,0,523.0999985,526.7000008," I wish we could make this work, but I will keep calling around."
+1,1,526.7000008,527.7000008, Okay.
+1,1,527.7000008,528.7000008, Sounds good.
+1,1,528.7000008,531.7000008, And I'll keep doing my part on my managers to see if I can convince them otherwise for
+1,1,531.7000008,532.7000008, you.
+1,1,532.7000008,533.7000008, Okay?
+1,0,533.7000008,534.7000008, Yeah.
+1,0,534.7000008,535.7000008, No problem.
+1,1,535.7000008,536.7000008," I appreciate it, man."
+1,1,536.7000008,537.7000008," Yes, sir."
+1,0,538.2999992,539.2999992, Okay.
+3,1,541.2999992,544.3000031," So, James, how can I help you?"
+3,0,544.3000031,545.3000031," Hey, man."
+3,0,545.3000031,549.6999969," I am looking to order a Escalade, and I was just trying to see pricing on it."
+3,1,549.6999969,550.6999969," Yes, sir."
+3,1,550.6999969,551.6999969, Of course.
+3,1,551.6999969,553.6999969, Very familiar with that vehicle.
+3,1,553.6999969,558.0999985, Are you more interested in the gas powered or the electric?
+3,0,558.0999985,559.0999985, The gas powered.
+3,1,559.0999985,560.0999985," Yes, sir."
+3,1,560.0999985,563.4599991, And are you more interested in the short body or the ESV?
+3,0,563.4599991,564.4599991, Short body.
+3,1,564.4599991,565.4599991, Okay.
+3,1,565.4599991,571.4599991, And are you familiar with Cadillac's online configuration tool for the 2025 Escalade?
+3,0,571.4599991,572.4599991, Yep.
+3,1,572.4599991,573.4599991, We've already configured it.
+3,0,573.4599991,574.4599991, Okay.
+3,1,574.4599991,575.4599991, Perfect.
+3,1,575.4599991,576.4599991, Do you have the build code?
+3,0,576.4599991,577.4599991, I do.
+3,0,577.4599991,578.4599991, I can give it to you whenever you're ready.
+3,1,578.4599991,579.4599991, That'd be great.
+3,0,579.4599991,580.4599991, Let me...
+3,0,580.4599991,581.4599991, Just give me one second.
+3,1,581.4599991,583.3799973," And what would that build code be for you, sir?"
+3,0,583.3799973,589.0999985," It's four X's in xylophone, nine M's in merry, four X's in xylophone."
+3,1,589.0999985,590.0999985, Okay.
+3,1,590.0999985,591.0999985," Oh, yeah."
+3,1,591.0999985,592.0999985, It's a fantastic build.
+3,1,592.0999985,593.0999985, Okay.
+3,0,593.0999985,594.0999985, Thank you.
+3,1,594.0999985,599.5400009," And for a sport platinum, I have black exterior with the Onyx package."
+3,1,600,602.8," It's like the 24-inch wheels, black interior."
+3,0,602.8,605.7600002, You're speaking our language.
+3,1,605.7600002,607.9200001, OK.
+3,1,607.9200001,611.04, And then what is your phone number for your customer
+3,1,611.04,611.9200001, account?
+3,0,611.9200001,614.04, Yep.
+3,1,614.04,614.8000002," Oh, OK."
+3,1,614.8000002,615.3599997, I see.
+3,1,615.3599997,616.0799999, Perfect.
+3,1,616.0799999,616.7600002, OK.
+3,1,616.7600002,622," So to order the Escalade, all that we needed was,"
+3,1,622,623.6800003," and we already got that, the build code."
+3,1,623.6800003,625.2800007, What is your email?
+3,0,625.2800007,626.0799999, I don't use email.
+3,0,626.0799999,627.2800007, Can I just do it all via text?
+3,1,627.2800007,629.3199997, Of course.
+3,1,629.3199997,632.7200012," It's going to ask for an email whenever we enter your order,"
+3,1,632.7200012,634.7599983, and we can't leave the field blank.
+3,1,634.7599983,637.4399986, Is there any sort of email that we can use just
+3,1,637.4399986,638.6399994, to fill in that requirement?
+3,0,638.6399994,639.8800011," Yeah, I mean, once we get done the pricing,"
+3,0,639.8800011,641.5200005," as long as all the pricing looks great,"
+3,0,641.5200005,644.2799988, then I'm all for giving an email at that point.
+3,1,644.2799988,647.9599991," OK, so pricing on the Escalade looks like the one"
+3,1,647.9599991,650.7200012," that you built was $126,740."
+3,1,650.7200012,654," So it never charges above MSRP, so that would be the sales"
+3,1,654,655.7999992," price, $126,740."
+3,1,655.7999992,658.7599983, We offer one thing that a lot of customers
+3,1,658.7599983,659.5600014, add to the vehicle.
+3,1,659.5600014,662.8400002, It's going to be called the protection package.
+3,1,662.8400002,665.9199982," Gives you ceramic window tint, door edge guards,"
+3,1,665.9199982,667.4400024," cup guards, and a screen protector"
+3,1,667.4400024,669.5599976, for that 55-inch display.
+3,1,669.5599976,672.8799973," Cost of that package is $1,490, totally optional."
+3,0,672.8799973,675.3600006," OK, so you'll do it at MSRP?"
+3,1,675.3600006,676.4400024," Yes, sir, of course."
+3,0,676.4400024,677.1600037, OK.
+3,0,677.1600037,679.9199982," OK, and that's the best you guys can do?"
+3,0,679.9199982,681.4400024, You guys can go below MSRP?
+3,1,681.4400024,683.0400009," With the high demand of these vehicles,"
+3,1,683.0400009,685.1200027, we're working on a sold order basis.
+3,1,685.1200027,688.8799973, So MSRP is going to be the best that we're going to be
+3,1,688.8799973,691.0800018, able to do on these cars.
+3,1,691.0800018,693.3600006, A lot of other dealers are charging over sticker price
+3,1,693.3600006,699.0800018," for the same vehicle, essentially."
+3,1,699.0800018,700.4800034, We place your order today.
+3,1,700.4800034,703.5999985, It'll take about three to four months to come in.
+3,1,703.5999985,706.3199997," We are the number one Cadillac dealer in the nation,"
+3,1,706.3199997,708.4000015, so we get the most allocations by far.
+3,0,708.4000015,710.4000015, What would be the order time on this?
+3,1,710.4000015,711.7200012," Yes, sir, three to four months."
+3,0,711.7200012,714.4800034," Three to four months, OK."
+3,0,714.4800034,715.6800003," OK, let me make a few more phone calls."
+3,0,715.6800003,716.7600021, I just want to see if I can.
+3,0,716.7600021,717.9199982," That seems like a good, fair deal."
+3,0,717.9199982,720.9199982, I just want to make sure I can't do any better than that.
+3,1,720,721, Okay.
+3,1,721,722, Is it the timeline?
+3,0,722,723," No, it's not the timeline."
+3,0,723,727.3600001," I just wanted to see if I can get $1,000, $2,000 off MSRP, it's even better, you know?"
+3,1,727.3600001,728.3599997," Oh, no."
+3,1,728.3599997,729.3599997, I totally understand.
+3,1,729.3599997,732.6800003, And we wouldn't miss anyone's business over $500.
+3,1,732.6800003,734.1999998, We can get that right out of the way.
+3,1,734.1999998,738.4799995," But anything more than that, like I said, it's just going to boil down to just how popular"
+3,1,738.4799995,741.4400005, these vehicles are and the limited supply.
+3,0,741.4400005,742.4400005, Okay.
+3,0,742.4400005,746.4799995," So, could we do like $1,000 off and make it nice and easy?"
+3,1,746.4799995,749.4400005, I'm not sure that I'll be able to get that done for you.
+3,1,749.4400005,754.9199982," I know $500 wouldn't be a problem, but anything more than that, I'd have to consult with the"
+3,1,754.9199982,755.9199982, manager.
+3,1,755.9199982,760.1199989, That would be a discussion once the vehicle got here.
+3,1,760.1199989,765.4799995," But just based on my knowledge, it's not going to be something that we'll be able to do."
+3,0,765.4799995,768.9199982," So you'll do $500 off MSRP, but that would be the best you could do?"
+3,1,768.9199982,769.9199982, Right.
+3,0,769.9199982,770.9199982, Okay.
+3,0,770.9199982,771.9199982, Let me...
+3,0,771.9199982,773.3199997," Yeah, if you guys could do $1,000, I'm going to feel a little better."
+3,0,773.3199997,776.4399986," But really, I'd like to see if I can get a little bit better than that."
+3,1,776.4399986,777.4399986, Okay.
+3,1,777.4399986,778.4399986, I understand.
+3,1,778.4399986,784, I'm happy to follow up with you later this week or see if we can just touch base some
+3,1,784,785, other time.
+3,0,785,786, Yeah.
+3,0,786,787, Yeah.
+3,0,787,788, Yeah.
+3,0,788,789, Let me just give you a call back real quick.
+3,0,789,790, Let me make a few more phone calls.
+3,1,790,791, Okay.
+3,1,791,792, Thanks so much.
+3,1,792,793, No problem.
+3,0,793,794, Bye.
+3,1,794,795, Bye.
+4,1,795,796," Hey, how you doing, Tommy?"
+4,0,796,797," What up, Dave?"
+4,0,797,798, How's it going?
+4,1,798,799, Good.
+4,1,799,800," How you doing, bro?"
+4,0,800,801," Hey, man."
+4,0,801,802, I'm living the dream.
+4,0,802,803, Living the dream.
+4,0,803,804," Hey, what is the chances you have the access to an Escalade Order?"
+4,1,804,805," Ooh, an Escalade Order."
+4,0,805,806, Yeah.
+4,0,806,810.0800018, I've got a good buddy that I'm trying to get taken care of.
+4,1,810.0800018,811.4800034, What kind of Escalade is he looking for?
+4,0,811.4800034,812.4800034, Sport Platinum.
+4,1,812.4800034,813.4800034, Okay.
+4,1,813.4800034,814.4800034, Platinum?
+4,0,814.4800034,815.4800034, Yeah.
+4,1,815.4800034,816.4800034, Okay.
+4,1,816.4800034,817.4800034, Let me take a look.
+4,1,817.4800034,818.4800034, Let me see if I have anything in the inventory.
+4,0,818.4800034,819.4800034, You can look if you want to.
+4,0,819.4800034,820.4800034, He wants to order one.
+4,0,820.4800034,821.4800034, He wants a custom order.
+4,1,821.4800034,822.4800034, Oh.
+4,1,822.4800034,823.4800034, Okay.
+4,1,823.4800034,824.4800034, So you need an allocation order.
+4,0,824.4800034,825.4800034, Yeah.
+4,1,825.4800034,826.4800034, That's cool.
+4,1,826.4800034,827.4800034, He's okay waiting?
+4,0,828.4800034,829.4800034, Yeah.
+4,0,829.4800034,830.4800034, Yeah.
+4,0,830.4800034,831.4800034," He's fine waiting three to four months, ideally."
+4,0,831.4800034,832.4800034, Trying to get somewhat of a deal on it.
+4,0,832.4800034,833.4800034," I understand these are hard, but-"
+4,0,833.4800034,834.4800034, That's okay.
+4,1,834.4800034,835.4800034, Is he in California?
+4,0,835.9599991,836.9599991," Yeah, he's in California."
+4,0,836.9599991,839.3799973, So he's actually one of the wide receivers for the Chargers.
+4,0,839.3799973,840.0199966, So he-
+4,0,840,845.2399998," He lives, he'd be registering in Texas, but he lives in LA too, so like both, but we can"
+4,0,845.2399998,846.2399998, make it work.
+4,0,846.2399998,847.2399998, Like he can go.
+4,1,847.2399998,848.2399998, Okay.
+4,0,848.2399998,849.2399998, But he'd prefer to pay taxes in Texas.
+4,1,849.2399998,850.2399998, Okay.
+4,1,850.2399998,851.8400002," So let me, uh, let me do this."
+4,1,851.8400002,855.8400002," Um, let me, I can call or I can give you Donnie's phone number."
+4,1,855.8400002,860.0400009, Donnie's the GM for the **** that I'm a part of.
+4,1,860.0400009,863.3999996," Either way, I can facilitate it or I can give you his number, whatever you want me to do."
+4,0,863.3999996,864.3999996, Yeah.
+4,0,864.3999996,865.3999996," I mean, what do you think?"
+4,0,865.3999996,866.3999996, Do you think he'll give me a deal?
+4,1,866.3999996,867.3999996, Yeah.
+4,1,867.3999996,868.3999996, Yeah.
+4,1,868.3999996,869.3999996," No, I'm sure he will."
+4,1,869.3999996,870.3999996, I'm sure he will.
+4,1,870.3999996,874.6800003," He knows that, um, he's, he's married to the owner's daughter of the dealership."
+4,0,874.6800003,875.6800003, Okay.
+4,0,875.6800003,876.6800003," Oh, okay."
+4,0,876.6800003,877.6800003, That's perfect.
+4,1,877.6800003,878.6800003, Yeah.
+4,1,878.6800003,881.6399994," So we, we, we've done a lot of business together and he likes me, he likes, and he knows I've"
+4,1,881.6399994,883.9599991," done deals with you, you know, before and stuff like that."
+4,1,883.9599991,884.9599991, I always tell him.
+4,0,884.9599991,885.9599991, Yeah.
+4,1,885.9599991,886.9599991, Text me over his number.
+4,1,886.9599991,888.9199982," Cause I'm trying to get a deal and you know, put this all together for him."
+4,0,888.9199982,889.9199982, Yeah.
+4,1,889.9199982,890.9199982, No worries.
+4,0,890.9199982,891.9199982," Okay, cool."
+4,1,891.9199982,892.9199982, Then everything else is good with you?
+4,0,892.9199982,893.9199982," Yeah, dude."
+4,0,893.9199982,894.9199982," Everything else is good, man."
+4,0,894.9199982,895.9199982, It's been a long time.
+4,1,895.9199982,896.9199982, I know you've been doing a lot of deals or trying to do a lot of deals.
+4,0,896.9199982,897.9199982," Uh, it's been a little hectic."
+4,1,898.9199982,901.3600006, You finished the end of the year.
+4,1,901.3600006,902.3600006," Super strong, bro."
+4,1,902.3600006,903.3600006, Good for you.
+4,1,903.3600006,904.3600006, I saw all the work you were putting.
+4,1,904.3600006,905.9199982," You were sweating on that camera, bro."
+4,0,905.9199982,906.9199982, Dude.
+4,0,906.9199982,907.9199982," It's crazy, man."
+4,0,907.9199982,908.9199982, Always.
+4,0,908.9199982,909.9199982," Always, man."
+4,0,909.9199982,910.9199982," We're always staying busy over here, but it's been good."
+4,1,910.9199982,911.9199982, That's awesome.
+4,1,911.9199982,912.9199982, Go away.
+4,1,912.9199982,913.9199982," When you're ever in Cali, bro."
+4,1,913.9199982,914.9199982, You got to hit me up when you're in Cali.
+4,0,914.9199982,915.9199982," I'll be there soon, man."
+4,0,915.9199982,916.9199982, I promise you.
+4,0,916.9199982,917.9199982, You'll be one of my phone calls.
+4,0,917.9199982,918.9199982, Guaranteed.
+4,1,918.9199982,919.9199982," Awesome, bud."
+4,1,919.9199982,920.9199982, Okay.
+4,1,920.9199982,921.9199982, So I'll shoot you over Donnie's number.
+4,1,921.9199982,923.9199982, Just let him know that you spoke to me and I referred you to him.
+4,1,923.9199982,924.9199982, Okay.
+4,1,924.9199982,925.9199982," Donnie should take care of you, bro."
+4,0,925.9199982,926.9199982, Okay.
+4,0,926.9199982,927.9199982, I'll call him right now.
+4,1,927.9199982,928.9199982, Okay.
+4,0,928.9199982,929.9199982, Okay.
+4,1,929.9199982,930.9199982," Sounds good, Dave."
+4,0,930.9199982,931.9199982, I appreciate you.
+4,0,931.9199982,932.9199982, All right.
+4,1,932.9199982,933.9199982," You too, bud."
+4,1,933.9199982,934.9199982, Thank you.
+4,1,934.9199982,935.9199982, Bye.
+4,0,935.9199982,936.9199982, All right.
+5,1,938.9199982,939.9199982," Hey, how are you?"
+5,0,939.9199982,940.9199982," Hey, Donnie."
+5,0,940.9199982,941.9199982, Tommy here.
+5,0,941.9199982,942.9199982, Dave said good things about you.
+5,0,942.9199982,943.9199982, I don't know if he texted you to tell you I was calling.
+5,1,943.9199982,944.9199982, Sure.
+5,1,944.9199982,945.9199982, Absolutely.
+5,1,945.9199982,946.9199982, Hey.
+5,1,946.9199982,947.9199982, How's it going?
+5,0,947.9199982,948.9199982," Hey, man."
+5,0,948.9199982,949.9199982, Doing well.
+5,0,949.9199982,950.9199982, Doing well.
+5,0,950.9199982,951.9199982," Hey, I have a good friend of mine trying to order an Escalade."
+5,1,951.9199982,952.9199982, I know.
+5,0,952.9199982,953.9199982, Super easy car to get.
+5,0,953.9199982,959.9199982, And I'm hoping to get him a deal on it and I'm hoping that maybe you can help me out.
+5,1,960,966.04," Okay, you're a broker. I'm not a broker. I help people negotiate car deals. I'm not a broker. I don't get paid for you guys"
+5,1,966.1599998,970.2799997, Why don't I pay you and then you make this more money? 
+5,0,970.2799997,973.54," No, that's not how I work. I don't I don't take any money from you. Um, yeah, I know"
+5,0,973.54,977.5200005, I'm just I'm just a straight helping somebody getting a deal and I don't take any money for you
+5,0,977.5200005,979.5200005, This is why you can give him a smoking deal on it
+5,0,980.1599998,984.1200008, Makes you feel any better and I don't know he is a he does play for the Chargers
+5,0,984.1200008,987.1200008, So I can probably use some signed merch for some trade
+5,0,987.8400002,990.6399994, If any of any of you guys are Chargers fans.
+5,1,990.6399994,993.6399994, I don't even know are they in the Super Bowl? No  It can't be that great. 
+5,1,993.6399994,999.4000015,Okay. All right. What unit does he want? Do you want a black?
+5,1,1002.400002,1005.439999, What like what kind of sport yeah
+5,0,1005.84,1009,  Sport platinum with Onyx edition with the onyx black. 
+5,1,1009,1010,"Okay, if you want a shorty or a longbow based already"
+5,0,1010,1014.400002," Well, it won't matter if it'd take three to four months. It takes or whatever."
+5,1,1014.639999,1020.119999," Yeah, that's about that's about right. Um sport platinum shorty black."
+5,1,1020.560001,1022.560001,Okay 2025
+5,1,1022.68,1023.880001, Cadillac
+5,1,1023.880001,1029.879997," Escalade while my pipelines pretty dry. Wow. Yeah, it would be an order unit most likely. Okay"
+5,1,1030.800003,1032.800003," Yeah, yeah. Yeah. Yeah, so"
+5,1,1032.839996,1037.400002," Okay. Yeah, so I mean I even I mean any order that I do get anyway"
+5,1,1037.400002,1042.360001, I'm gonna put in a shorty shorty sport platinum because that's what everybody wants anyway with an onyx black package
+5,1,1042.360001,1046.199997," I mean that's gonna be it if it's not constrained the onyx black package is where it's at, too"
+5,1,1046.199997,1049.080002," Yeah, but yeah, it's a nice car. Yeah, he'd be he'd be good with that"
+5,1,1049.080002,1053.160004, Do you want me to just let you know when I can order I order on Thursdays like everyone else and then yeah
+5,0,1053.160004,1055.559998," Yeah, do you know do you know what kind of pricing you'd be at it?"
+5,1,1055.559998,1061.68," Um, is he leasing it or buying it? I mean, I don't think I've sold one for less than five grand over"
+5,0,1061.68,1064.559998," Oh, jeez. I got way crazier than that. Oh"
+5,0,1065.199997,1070.639999,Like I got 500 off MSRP. Holy shit
+5,1,1073.360001,1079.199997," You know, I know there's some dealers out there, you know churning and burning on me now"
+5,0,1079.199997,1081.199997,"Yeah, I'm just calling it I was calling"
+5,0,1080,1081.92," of favors, that's what I'm trying to do at this point,"
+5,0,1081.92,1083.4, trying to give this guy a good deal.
+5,1,1083.4,1085.72, Does your guy that's doing 500 off just not have any more
+5,1,1085.72,1086.56, to give?
+5,0,1086.56,1088.84," No, he's willing to do it, but Dave and me go way back,"
+5,0,1088.84,1090.64," so I figured, I asked him."
+5,1,1090.64,1093.32," Oh, that's cool, man, no, I appreciate it, I appreciate it."
+5,1,1093.32,1095.88," Yeah, so I figured, let's see if we can get something"
+5,1,1095.88,1097.32, put together and.
+5,1,1097.32,1099.76," I'm sure, I mean, maybe if they softened up by then"
+5,1,1099.76,1101," or whatever like that, but right now,"
+5,1,1101,1102.799999," they're still bringing all the money, but I mean,"
+5,1,1102.799999,1104.639999," you can ask Dave, I like money more than anything."
+5,0,1104.639999,1106.799999," That's fair, we can do a whole bunch of deals together."
+5,1,1106.799999,1107.639999, Yeah.
+5,0,1107.639999,1108.48, But that's fine.
+5,1,1108.559999,1110.92," We work with brokers and stuff, this particular unit,"
+5,1,1110.92,1112.32," it's a hot, hot unit."
+5,1,1112.32,1114.959999," Every time I get one, I sell it the day I get it."
+5,1,1114.959999,1117.759998," I got premium luxuries and other ones that aren't so hot,"
+5,1,1117.759998,1118.599998, you know what I mean?
+5,1,1118.599998,1120.119999," But this guy wants the Mac Daddy, you know what I mean?"
+5,0,1120.119999,1121," Yeah, yeah, yeah."
+5,1,1121,1122.919998," I wouldn't mind though, I'll save your number, dude,"
+5,1,1122.919998,1124.880001, if I put one in and it's something I can do.
+5,1,1124.880001,1126.560001," I mean, if you don't have one by the time,"
+5,1,1126.560001,1127.639999," because you're gonna be waiting for one anyway,"
+5,1,1127.639999,1129.84," most likely, because I can tell the market's getting"
+5,1,1129.84,1132.360001," bought up on these Sport Platinums,"
+5,1,1132.360001,1134.080002, especially if he wants an Onyx Black package.
+5,1,1134.080002,1138.040001," I mean, I feel like that's a constrained package anyway,"
+5,1,1138.040001,1140.32," because he wants the black wheels, he wants the, you know."
+5,1,1140.32,1142.919998," Now, you know the regular Sport Platinum wheels"
+5,1,1142.919998,1144.440002," are still dark, you know that, right?"
+5,0,1144.440002,1145.279999," Yeah, yeah, yeah."
+5,1,1145.279999,1146.720001," Yeah, they're still dark, they're still like"
+5,1,1146.720001,1148.120003," the midnight finish, they look great."
+5,1,1148.120003,1150.720001," I just got my Escalade yesterday, so I'm happy about it,"
+5,1,1150.720001,1154.080002," but I went from an Onyx Black, Black, Black 24 model"
+5,1,1154.080002,1157.279999," to the 25, and I kind of wish the wheels were black,"
+5,1,1157.279999,1159, but the Onyx Black package wasn't available.
+5,0,1159,1162.480003," Okay, yeah, yeah, yeah, it's a little constrained right now."
+5,1,1162.480003,1164.480003," Yeah, what company, are you with a company or no?"
+5,0,1164.480003,1165.639999," No, I own my own company."
+5,1,1165.639999,1167.480003," You own your, okay, very cool, very cool."
+5,0,1167.599998,1169.199997," Delivered, yeah, no."
+5,1,1169.199997,1170.839996," Yeah, let's do it like that."
+5,1,1170.839996,1173.400002," So if we do a deal like there's no,"
+5,1,1173.400002,1175.080002," it's like there's no broker, right?"
+5,0,1175.080002,1177.440002," Yeah, yeah, yeah, yeah, so just treat me as a guy"
+5,0,1177.440002,1180.080002," that's a third base coach, I negotiate the whole thing."
+5,0,1180.080002,1182.239998," Yeah, yeah, he pays me, and then I do everything,"
+5,0,1182.239998,1183.959999, and then you guys handle it all.
+5,1,1183.959999,1186.879997," Yeah, awesome, yeah, we've done that quite a few times"
+5,1,1186.879997,1187.720001, for a lot of people.
+5,1,1187.720001,1188.760002, There's a couple guys out there
+5,1,1188.760002,1189.720001, doing the same thing you're doing.
+5,1,1189.720001,1191.120003," They'll just collect the fee from the customer,"
+5,1,1191.120003,1192.440002," they just kind of get us lined up,"
+5,1,1192.440002,1194.959999," and as long as everybody's on a clear understanding,"
+5,1,1194.959999,1195.959999," then it goes pretty smooth,"
+5,1,1195.959999,1197.080002," and we don't wanna make you look bad either,"
+5,1,1197.080002,1199.919998," so you gotta make sure, obviously."
+5,1,1200,1203," You're good for one day, you're good for a hundred deals, you know?"
+5,0,1203,1204, Exactly.
+5,0,1204,1205.84," See, that's why we just do a deal on this one."
+5,0,1205.84,1206.84, Just get your hand off call me.
+5,1,1206.84,1207.84, I agree.
+5,1,1207.84,1208.84, I'll put it together.
+5,1,1208.84,1209.84, I'll take a look at it.
+5,1,1209.84,1211.84, My allocations are on Thursdays.
+5,1,1211.84,1214.52, I have no idea if I'm getting an Escalade allocated or not.
+5,1,1214.52,1216.360001, They're really rough right now trying to get them.
+5,1,1216.360001,1220.52, I've only got a couple left and none of them are Platinum's except for one of them.
+5,1,1220.52,1223.48," I got one sport Platinum, which I've got two people fighting over right now."
+5,1,1223.48,1225.68, It's a crystal white with the sheer gray interior.
+5,0,1225.68,1228.52," Yeah, I don't need that one."
+5,1,1228.52,1229.959999," But yeah, dude, I'll save you."
+5,1,1229.959999,1230.959999, What's your name again?
+5,0,1230.959999,1231.959999, My name is Tommy.
+5,1,1231.959999,1232.959999," Tommy, T-O-M-M."
+5,1,1232.959999,1233.959999, All right.
+5,1,1233.959999,1234.959999," I got you, buddy."
+5,1,1234.959999,1237.959999, Let's touch base maybe tomorrow and just see if I got any allocation.
+5,0,1237.959999,1238.959999, Yeah.
+5,0,1238.959999,1239.959999, Yeah.
+5,0,1239.959999,1240.959999, Yeah.
+5,0,1240.959999,1241.959999, Yeah.
+5,1,1241.959999,1242.959999, Okay.
+5,1,1242.959999,1243.959999," Awesome, man."
+5,0,1243.959999,1244.959999, Yeah.
+5,0,1244.959999,1245.959999, Let me know.
+5,1,1245.959999,1246.959999," All right, brother."
+5,0,1246.959999,1247.959999, Thank you.
+5,1,1247.959999,1248.959999, All right.
+5,1,1248.959999,1249.959999, Sounds good.
+5,1,1249.959999,1250.959999, Bye-bye.
+5,0,1250.959999,1251.959999, Bye.

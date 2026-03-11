@@ -1,0 +1,806 @@
+conversation_id,speaker_id,start_time,end_time,text
+1,0,91.13999939,97.73999786,"Hey, can I speak to somebody in the sales department about a Honda, please"
+1,1,97.94000244,100.3399963," Okay, one moment."
+1,1,101.3799973,103.6600037,This is Gerardo. How can I help you?
+1,0,103.6600037,104.6600037,How are you doing?
+1,1,104.6600037,105.6600037,Doing good.
+1,0,105.6600037,107.4599991,"Hey man, I just want to see if you guys have a car available."
+1,1,107.6200027,109.3799973," Yeah, which car are you looking at "
+1,0,109.3799973,113.3799973,S is in Sam E is in elephant 0 6 0 0 8 8
+1,1,113.3799973,115.0599976, What kind of car is it?  
+1,0,115.0599976,118,It is a Honda CRV hybrid sport-touring SUV.
+1,1,118,120,"Yes, sir. What color are you looking?"
+1,0,120,122.6399999, I am looking at white platinum white pearl. 
+1,1,122.6399999,125.6399999,"Yeah, I do have this vehicle in stock."
+1,0,126.7800002,132.6000004," That's awesome. Perfect. Well, I am trying to get the best possible deal on it"
+1,0,132.6000004,136.6599998, I'm trying to get these deals before the tariffs raise all the prices on all of my other good
+1,0,136.6599998,137.9599991, So I'm saving some money here
+1,0,137.9599991,139.2000008, So I'm hoping you can just give me the best
+1,0,139.2000008,143.2199993, Rocking deal that I can go home to the lady with and she'd be proud of me. So I don't sleep on the couch
+1,1,143.5,145.7600002, Gotcha. Are you looking to trade anything in?
+1,0,145.7600002,147.7600002," Nope, not looking to trade anything in."
+1,0,147.7600002,149.3600006, I just don't want to sleep on the couch Eduardo.
+1,1,149.3600006,151.5200005,"Right, right. I don't blame you."
+1,1,151.5200005,153.7599983, Are you gonna finance or you get this paid in cash?
+1,0,154.4799995,155.1599998, Finance. 
+1,1,155.1599998,157.1599998,You're financing it. Okay. 
+1,0,157.1599998,159.1599998,"Oh, was it Eduardo or Gerardo?"
+1,1,159.1599998,161.1599998, It was Gerardo.
+1,0,161.1599998,163.1599998," Okay, my memory's not what it used to be."
+1,1,165,166.5600014, Are you local? 
+1,0,166.5600014,168.5600014,I'm about an hour away from the dealership. 
+1,1,168.5600014,170.5600014,"Okay, and so what's your name again?"
+1,0,170.5600014,172.5600014," Well, my name is Tommy"
+1,1,173.0800018,175.3600006, Slow me right now. I think I've been overworking it.
+1,0,176.2000008,181.8800011," Yeah, yeah, no, I overworked my computer every day too."
+1,1,183.2799988,187.5999985," Yeah, so my asking price it's 42,950 I mean if I could somehow save you a couple hundred dollars on your business"
+1,1,187.5999985,189.0400009, You are a pretty popular car
+1,1,189.0400009,190.1999969,"seller, you know"
+1,0,190.1999969,194.8399963, I appreciate. My mom told me that I wasn't allowed to come home until I got a couple thousand dollar discount
+1,0,194.8399963,196.8399963, I'm looking for$4000 off
+1,1,197.3199997,202.5199966, Got it. Got it. I could bring it up to my boss and I could somehow do that you come by it.
+1,0,203.0800018,206.7200012, I mean if you can get four grand off my mom won't disown me.
+1,1,209.9599991,215.9599991," Okay, let me take make sure I have your phone number right here and take a look is this."
+1,0,216.5599976,218.2399979, that is *phone number*
+1,0,218.2399979,219.4000015, correct
+1,1,219.4000015,225.4000015," Okay, I'll bring up to my boss Tommy. They're in a meeting right now. Let me ask them. If something we could do."
+1,1,225.4000015,229, I'm gonna give you a call back regardless. If I could do it or not.
+1,0,229,234.1999969," All right, we'll be in touch. Okay."
+1,0,237.0400009,238, This is Tommy.
+1,1,238,240,Hey Tommy.
+1,0,240,242.8800001," Oh, how's it going? What do you got? Good news?"
+1,1,242.8800001,247.2800002,"Presented it to my boss. I can't do $4,000, man. Not in this car. Sorry."
+1,1,247.2800002,249.8400002,Highest demand in one right now.
+1,0,249.8400002,258.5799999," Ah, bummer, bummer. Okay. I guess I'll move on."
+1,1,258.5799999,261.1200008," Yeah, thank you for the opportunity though."
+1,0,261.1200008,262.1200008," Hey, no, thank you."
+1,1,262.1200008,263.1200008," For sure. Have a good one, Tommy."
+1,0,263.1200008,264.1200008, You too. Bye.
+1,1,264.1200008,265.1200008, Take care. Bye.
+2,1,265.1200008,268.2999992, Hello. This is Tom. How can I help you?
+2,0,268.2999992,272.8600006," Tom, it's Tom. How's it going?"
+2,1,272.8600006,275.2599983, Oh my God. Is it Tom?
+2,0,275.2599983,277.9399986," Tom, it's Tom. How is Tom?"
+2,1,277.9399986,281.6199989," You know, I'm just all Tommed up, man. What's going on?"
+2,0,281.6199989,284.7799988," Hey, man. I just want to see if you have a car available."
+2,1,284.7799988,285.7799988, What is it?
+2,0,285.7799988,286.7799988, I have a stock number whenever you're ready.
+2,1,286.7799988,287.7799988, Go.
+2,0,287.7799988,288.7799988, 2833394?
+2,1,288.7799988,295.3800011, Let me get into this computer. It just kicked me out. All right. Let's see here. Is a white
+2,1,295.3800011,300.2999992," with a gray interior, all wheel drive touring CRV hybrid?"
+2,0,300.2999992,302.3800011, Yep. That's it.  
+2,1,302.3800011,310.6999969,"That's the one. Let's see here. I don't have that yet. It will be here tomorrow, but I"
+2,1,310.6999969,316.6600037, have another one that came in yesterday. Are you hooked down to that ID number for one
+2,1,316.6600037,318.9400024," reason or another, or you just wanted a white gray?"
+2,0,318.9400024,323.1399994, I'm looking for a white with black or gray. Either one. I'm fine with either one.
+2,1,323.1399994,328.1399994," Okay. Well, I've got a white with gray sitting here that came in yesterday. So I got it."
+2,1,328.1399994,334.8199997," I got it. I got it. I got it. I got it. I got it. I got it. Yeah. Well, come get it,"
+2,1,334.8199997,336.6600037, man. What's the holdup? What are you waiting for?
+2,0,336.6600037,337.6600037, I'm waiting for the deal.
+2,1,337.6600037,343.0199966," Well, I've got them for $1,500 off on the web. I mean, I'm sure that's why you're calling."
+2,0,343.0199966,346.8600006," Well, no, I actually have a better deal already here, but I figured you guys had $1,500 off,"
+2,0,346.8600006,348.5, so you guys would beat this other deal.
+2,1,348.5,353.0999985," Oh, no, we're not. We're the lowest price that I've seen. So if you got a better deal,"
+2,1,353.0999985,354.4599991," then you've got a better deal, brother."
+2,0,354.4599991,356.8199997," Oh, okay. So you guys won't even compete with it?"
+2,1,356.8199997,359.9800034, Nope. Nope. Nope. These things are too hard to come by and you're up in the-
+2,1,360,361.6799999," in the city, and you know what I mean?"
+2,1,361.6799999,364.7600002," If you were local here, maybe I'd consider it,"
+2,1,364.7600002,367.3600001," but I need the service business, I need all that."
+2,0,367.3600001,368.1999998," Well, that's a bummer."
+2,1,368.1999998,370.6800003," Yeah, that's the way it works, man."
+2,1,370.6800003,373.3199997," You gotta do what's right for the local,"
+2,1,373.3199997,375.04," for the local people, man."
+2,0,375.04,376.2399998," But we're local, because you know."
+2,1,376.2399998,377.8799992," I know, yeah."
+2,0,377.8799992,378.7199993," You know, Tom and Tom."
+2,1,378.7199993,380," Yeah, I know."
+2,1,380,381.7600002," I get it, I get it, I get it."
+2,1,381.7600002,385.0400009," I only got, I got one more of these for the next seven weeks,"
+2,1,385.0400009,386.5599995," so that's all she wrote, man."
+2,1,386.5599995,388.7199993, These things are just too hard to come by.
+2,0,388.7199993,391.3199997," Yeah, they're, they're."
+2,1,393.3199997,396.3199997," They're not plentiful, they're just not plentiful."
+2,1,396.3199997,397.9599991," But if you wanna come down and get it,"
+2,1,397.9599991,399.5999985," no, if you wanna come down and get it,"
+2,1,399.5999985,402," that's the deal, Bubba, that's the deal."
+2,0,402,403.3199997," I already have a better deal than that,"
+2,0,403.3199997,404.4000015, but I appreciate it.
+2,1,404.4000015,405.7599983," All right, no, I appreciate it, man."
+2,1,405.7599983,408.5200005," I'll check in with you and see how that better deal went,"
+2,1,408.5200005,410.7200012, because everybody tells me they got a better deal.
+2,1,410.7200012,413.2400017, I always hear from them within 24 hours.
+2,0,413.2400017,414.0800018," All right, sounds good."
+2,1,414.0800018,414.9199982, You can call me back.
+2,1,414.9199982,416.0800018," You can call me, beat me, page me,"
+2,1,416.0800018,417.0800018, whatever makes more sense.
+2,0,417.0800018,417.9199982," See you, Tom."
+2,1,417.9199982,419," All right, all right, see you, buddy."
+2,1,419,419.8400002, Bye-bye.
+2,1,420.9599991,421.7999992, Thank you for holding.
+3,1,421.7999992,422.6399994, This is John in sales.
+3,1,422.6399994,423.4599991, How can I help you?
+3,0,423.4599991,424.3000031," Hey, John, I was just trying to see"
+3,0,424.3000031,426.7600021, if you guys have a car available.
+3,1,426.7600021,428.9599991," Sure, were you looking at a new one or a used one?"
+3,0,428.9599991,429.7799988, Brand new.
+3,1,429.7799988,431.2399979," Okay, which car is it?"
+3,0,431.2399979,436.2399979, It is a white Honda CRV Hybrid Sport Touring.
+3,1,436.2799988,438.2399979, I know our website's not showing all the cars
+3,1,438.2399979,439.7200012, that we have on our lot.
+3,1,439.7200012,441.9599991," Let me just, I'm gonna run outside real quick"
+3,1,441.9599991,442.8000031, and just check.
+3,1,442.8000031,444.1200027, Can I put you on a brief hold
+3,1,444.1200027,445.4400024, or do you want me to give you a call back?
+3,0,445.4400024,447.1200027," You can put me on a brief hold, it's totally fine."
+3,1,447.1200027,448.1999969," Okay, all right, no worries."
+3,1,448.1999969,449.0400009," Just give me a few minutes, okay?"
+3,1,449.0400009,449.8799973," All right, sounds good."
+3,1,453.8799973,455," Okay, sorry about that."
+3,1,455,457.3199997, So I don't have a white one.
+3,1,457.3199997,458.6800003," I have a black one,"
+3,1,458.6800003,461.5599976, but what are you looking to get out of the Sport Touring?
+3,1,462.4000015,464.1999969," Because between the Sport L and the Sport Touring,"
+3,1,464.1999969,466.3600006, there's not really much of a big difference between the two.
+3,0,466.3600006,470.7600021," Honestly, the lady in charge wants a Sport Touring."
+3,0,470.7600021,472.4400024, So her wish is my command.
+3,0,472.4400024,475.1200027, So I don't get to make these decisions.
+3,1,475.1200027,476.1200027," No worries, no worries."
+3,1,476.1200027,476.9599991, I totally agree with you.
+3,1,477.3600006,478.7200012," Unfortunately, I don't have a white one."
+3,1,478.7200012,479.5599976, I have a.
+3,1,480,483.96," black one right now. I could get my hands on a white one and bring it over here, but"
+3,1,483.96,487.6799998," we would obviously have to, you know, work the details out and then I would go get it."
+3,0,487.6799998,491.3199997," Uh, yeah, I mean, you're gonna work the details out. I'm all for trying to work the price"
+3,0,491.3199997,496.3999996," out. I'm looking just for the best possible deal. So, um, yeah, you know, everything's"
+3,0,496.3999996,499.2000008, about to get more and more expensive with these tariffs. So trying to save all the money
+3,0,499.2000008,500.2000008, I can.
+3,1,500.2000008,505.4400005," No, I hear you. I totally hear you. Um, let me see here. Let me, let me talk to my boss"
+3,1,505.4400005,512, real quick. Okay. Give me one second. 
+3,1,512,518," So obviously this number is going to be before taxes and fees, right?"
+3,1,518,523.2799988," Yeah. Um, let's just be the selling price of the car. So any dealership you encounter,"
+3,1,523.2799988,527.6800003," um, every dealership is going to have accessories on their cars. Um, accessories are like the"
+3,1,527.6800003,531.6800003," ones that we have are wheel locks, splash guards, all of the maps, a cargo tray. Uh,"
+3,1,531.7599983,535.2000008," there's a clear adhesive on the door edges and the door handles, uh, to prevent from"
+3,1,535.2000008,539.2799988," chips and scratches. Uh, same with the front bumper and the back bumper. Um, there's a"
+3,1,539.2799988,542.9599991," GPS device so you can track the car and see where it's at in real time. Um, and there's"
+3,1,542.9599991,546.9599991," a clear coat sealant that we put on all the cars, uh, to protect the outside and the inside"
+3,1,546.9599991,551.3600006," of the vehicle. So normally with all that stuff set in stone, the price of the car is"
+3,1,551.3600006,556.5599976," $51,495 before taxes and fees, but trying to make this as easy as possible for you."
+3,1,556.5599976,561.5999985," So I'm willing to discount all the stuff. And again, I have to still get the car for"
+3,1,561.5999985,567.5199966," you, which I don't mind doing that. So basically your price would be $47,495 plus taxes and fees"
+3,1,567.5199966,573.7600021, roughly puts you at basically like at 53 out the door for touring.
+3,0,577.1200027,581.9199982," Give me a, give me a second to process all this. You're saying MSRP on this car is right around"
+3,0,581.9199982,587.6800003," 42, 43,000, right? Right. And he had all these add ons that you normally charge,"
+3,0,588.3199997,592.8000031," correct? Which brings up, but you're giving me a discount from four. So you go, you're going from"
+3,0,592.8000031,599.6800003," 42,000 to 51,000, but you're doing me a favor by bringing it down to 47,000."
+3,0,600,603," No, I should never ask you for a favor."
+3,0,603,604.6999998, That seems like a horrible favor.
+3,1,604.6999998,606.6999998, What do you mean?
+3,0,606.6999998,609.1999998, So you're bringing it to how much above Sticker?
+3,0,609.1999998,611," $4,000 above Sticker?"
+3,0,611,613," $5,000 above Sticker?"
+3,1,613,614.6999998, Every dealership is doing this.
+3,1,614.6999998,616.2000008, Every Honda dealership you encounter.
+3,0,616.2000008,620.5," Capital City Honda is $2,500 below MSRP, no ads."
+3,1,620.5,622.5," I promise you, once you get there,"
+3,1,622.5,624, they're going to hit you with accessories.
+3,1,624,626," Trust me, I deal with this on a day-to-day basis."
+3,1,626,628.5, They hit you with a really low number over the phone
+3,1,628.5,630," to get you in, and once you get in there,"
+3,1,630,633.5," they hit you and surprise you with about $5,500 worth of accessories."
+3,0,633.5,636, So you're saying that they gave me an out-the-door number
+3,0,636,637.5," with the total purchase price,"
+3,0,637.5,639," that I could bring a check for this amount,"
+3,0,639,642.5," and they're going to hit me for $5,000 of accessories after the fact?"
+3,1,642.5,646," Yes. Again, like I said, I could have done something similar,"
+3,1,646,647.5, but I don't play those games.
+3,1,647.5,649.5," I mean, I've been in the car business for eight years,"
+3,1,649.5,651.5, so I don't have time to play games like that.
+3,1,651.5,653.5, And that's how they want us to bring people in.
+3,1,653.5,655.5, They want us to shoot people with a low number
+3,1,655.5,658," and then hit them like that, but I don't work that way."
+3,1,658,659.5, That's just a waste of my time and yours.
+3,1,659.5,661.5, I'm not trying to do you like that.
+3,1,661.5,664.5," If you want to go and experience and get the headache, by all means,"
+3,1,664.5,667.5, but I'm just trying to be as upfront and honest with you as I can.
+3,0,667.5,670, So you're saying there's no way in any world
+3,0,670,671.5, that I get this deal below sticker?
+3,1,671.5,674.5, No. No dealership sells these cars for below sticker.
+3,0,674.5,675.5, You want to bet on it?
+3,1,675.5,678," Like I said, I'm not going to bet on it"
+3,1,678,679.5, because I do this on a day-to-day basis.
+3,0,679.5,681.5," Well, I mean, you're betting against me."
+3,0,681.5,683.5," I mean, you said you felt fully confident."
+3,0,683.5,684.5, How much do you want to put on it?
+3,0,684.5,686," Like $100, $200, $500?"
+3,1,686,687, I'm not going to bet you.
+3,1,687,689," Like I said, I'm not trying to play games with you."
+3,1,689,690, I'm not trying to play games.
+3,0,690,693," You just sounded so salty, or not salty, sorry."
+3,0,693,695, You just sounded so confident
+3,0,695,697, that I wouldn't get this deal below sticker
+3,0,697,699.5, that you're telling me this dealership is lying.
+3,1,699.5,700.5, You know what? How about this?
+3,1,700.5,703.5," Why don't you go over there, walk in, and then see what happens"
+3,1,703.5,706, and then give me a call back and let me know what the outcome was.
+3,0,706,706.5, Okay.
+3,0,706.5,707.5, You want to do that?
+3,0,707.5,710, And you don't feel confident to bet $500 on it?
+3,0,712,713," Oh, and he hung up."
+4,1,720,722, Thank you for calling.
+4,0,722,723, Hello.
+4,1,723,724, Hi.
+4,0,724,725, Hi.
+4,0,725,726, Sorry.
+4,0,726,727, I got out there.
+4,0,727,728, Is this sales?
+4,1,728,729, Yes.
+4,1,729,730, This is sales department.
+4,1,730,731, My name is Ken.
+4,0,731,732, Damn.
+4,0,732,733," Nice to meet you, man."
+4,0,733,734, How's it going?
+4,1,734,735, I'm doing great.
+4,1,735,736, How are you?
+4,0,736,737," Man, I'm living a dream every day of my life."
+4,0,737,738, I'm hoping you can tell me if a car is available.
+4,1,738,739, Definitely.
+4,1,739,740, Happy to check it for you.
+4,0,740,741, Yeah.
+4,0,741,742, I can give you a stock number.
+4,0,742,743, What's best for you?
+4,1,743,744, Stock number is good for me.
+4,0,744,745, Stock number.
+4,0,745,746, Okay.
+4,0,746,747, Give me one second.
+4,0,747,748," I'm filling my inventory, okay?"
+4,1,748,749, You take all the time in the world.
+4,0,750,751, I can find a few.
+4,0,751,754, It's a 2025 CRV hybrid sport touring SUV.
+4,1,754,755, Is it brand new or used?
+4,0,755,756, Brand new.
+4,0,756,757,2025
+4,0,757,759, Brand new spanking on the lot.
+4,0,759,760, It hasn't been driven.
+4,1,760,761, Got you.
+4,1,761,762, Got you.
+4,0,762,765," I don't know if it's been driven or not, but hopefully it's not."
+4,0,765,767," Hopefully it's not, right?"
+4,0,767,768, Hopefully not.
+4,1,768,771, So it's a 2025 CRV hybrid touring.
+4,1,771,772," Sport touring, yeah."
+4,1,772,773, Is that what you're talking about?
+4,0,773,774, Yep.
+4,0,774,775, Sport touring.
+4,0,775,776, Okay.
+4,1,776,777, What's the last for the stock number?
+4,0,777,778,19670
+4,1,778,779, One second.
+4,0,779,780, It's white color.
+4,1,780,781, All wheel drive sport touring?
+4,1,781,782," It is a platinum white pearl color, yes."
+4,0,782,783," Yes, sir."
+4,1,783,784," Oh, by the way, I haven't get your name."
+4,0,784,785," Oh, my name is Tommy."
+4,1,785,786, Tommy.
+4,1,786,787," Nice to meet you, Tommy."
+4,1,787,788, So this car just came in.
+4,1,788,789, I have this car in stock right now.
+4,1,789,790, Is there anything else I can help?
+4,0,790,791, Yeah.
+4,0,791,792, I'm really just trying to get...
+4,1,792,793," It's already driven, this car."
+4,0,793,794, I already know I like it.
+4,0,794,795, I'm just trying to get the...
+4,0,795,796," You know, the tariffs are about to go crazy."
+4,0,796,797, Everything's about to get more and more expensive.
+4,0,797,798, So I'm trying to buy a car so I can get the best possible deal.
+4,0,798,799, Save some money on the cars.
+4,1,799,800, I'll find a car.
+4,1,801,802, I'm happy to do it for you.
+4,1,802,803, I'm so glad you asked that.
+4,0,803,804, Yeah.
+4,1,804,805, Yeah.
+4,0,805,806, I've actually done...
+4,0,806,807, I've gotten pricing from two different dealerships.
+4,0,807,808," I'll tell you, one of them was crazy."
+4,0,808,809," I'm telling you, Cam."
+4,0,809,810, This guy was insane.
+4,0,810,811, He said he was doing me a favor.
+4,0,811,812," Selling me the car at 51,000 plus tax title license."
+4,0,812,813," The other person, I don't know."
+4,1,833,834, Okay?
+4,0,834,835," So one was crazy, one was more reasonable."
+4,1,835,836, So I'm happy to give you a better deal.
+4,0,840,841, Thank you.
+4,0,841,842," Cam, we're on the right page."
+4,1,842,843, No problem.
+4,1,843,849.3599997, So let me know when is the best time for you to come in and see it and finish all the paperwork.
+4,1,849.3599997,852.3999996, Is there anything we can earn in your business?
+4,0,852.3999996,853.3999996, Love it.
+4,0,853.3999996,856.8799992," You know, I can come in the second you guys can beat that price."
+4,1,856.8799992,857.8799992, Okay.
+4,1,857.8799992,861.8400002, So let me run to my manager and see how crazy you can do the deal for you and give you a
+4,1,861.8400002,862.8400002, call back.
+4,0,862.8400002,865.1200008," I'm going to tell you, I'm crazy enough to go into an insane asylum."
+4,0,865.1200008,866.7600002," You know, that's what kind of crazy I want."
+4,1,868.7600002,869.7600002, Okay.
+4,1,869.7600002,870.7600002, So what's the best one to bring and call you back?
+4,0,870.7600002,871.7600002, Call me?
+4,1,871.7600002,872.7599983, Yeah.
+4,0,872.7599983,873.7599983, Yeah.
+4,1,873.7599983,874.7599983, Yeah.
+4,0,874.7599983,875.7599983, Are you ready for my phone number?
+4,1,875.7599983,876.7599983, Let me go ahead and bring all the information to the manager.
+4,1,876.7599983,877.7599983, I'll call you back in about five minutes.
+4,0,877.7599983,878.7599983, Five minutes.
+4,0,878.7599983,879.7599983, I can't wait.
+4,1,879.7599983,880.7599983, Talk to you later.
+4,0,880.7599983,881.7599983, Okay.
+4,1,881.7599983,882.7599983, Talk to you later.
+4,1,882.7599983,883.7599983, Bye bye.
+4,0,883.7599983,884.7599983, Bye bye.
+5,0,884.7599983,885.7599983, This is Tommy.
+5,0,885.7599983,886.7599983, Hello.
+5,1,886.7599983,887.7599983, Hello.
+5,1,887.7599983,888.7599983," Hi, this is Bernice from Hunter Honda."
+5,0,888.7599983,889.7599983," Hey, how's it going?"
+5,1,889.7599983,890.7599983, Give me one second.
+5,0,890.7599983,891.7599983, Okay.
+5,1,891.7599983,892.7599983, Quick question.
+5,1,892.7599983,893.7599983, What's the car that you were calling for?
+5,1,893.7599983,894.7599983, That you inquired?
+5,0,894.7599983,898.0800018, A Honda CRV Sport Touring Hybrid.
+5,1,898.0800018,899.1599998, And then what color?
+5,0,899.1599998,900.1599998, Red and white.
+5,1,900.1599998,901.1599998, Hello?
+5,0,901.1599998,902.1599998, Hello.
+5,1,902.1599998,903.1599998, Yeah.
+5,1,903.1599998,904.1600037, My name's Felipe here with Honda.
+5,1,904.1600037,905.1600037, How can I help you?
+5,0,905.1600037,906.5999985, Are you guys just messing with me at this point?
+5,0,906.5999985,907.5999985," What's going on, sir?"
+5,1,907.5999985,908.5999985, I don't know.
+5,0,908.5999985,912, I just got a call from you guys asking what car I was interested in and then I got transferred
+5,0,912,913, to you.
+5,1,913,914," Oh, wow."
+5,1,914,915, And your name is?
+5,0,915,916, Tommy.
+5,1,916,917, Tommy.
+5,1,917,918, Okay.
+5,1,918,919, Tommy.
+5,1,919,920, We called you or you?
+5,0,920,921," I'm just, I mean, I'm trying to buy a car."
+5,1,921,922, Correct.
+5,1,922,923, But.
+5,1,923,924, Okay.
+5,1,924,925, We don't have you in our system.
+5,1,925,926, What's the number that we called?
+5,0,926,927, My phone number?
+5,1,927,928, We're in Southern California.
+5,1,928,929, Where are you calling?
+5,0,929.8399963,930.8399963, Okay.
+5,0,930.8399963,931.8399963, I'm willing to buy a car from you if you can make a deal happen.
+5,0,931.8399963,934.8399963," Maybe let's put, let's put a dream in a driveway, call it a day."
+5,1,934.8399963,935.8399963, Okay.
+5,1,935.8399963,936.8399963, What number do we have to get you to earn?
+5,0,936.8399963,937.8399963," $3,500 off."
+5,0,937.8399963,938.8399963, Easy peasy.
+5,1,938.8399963,939.8399963, Yeah.
+5,1,939.8399963,940.8399963, On which vehicle?
+5,0,940.8399963,944.8399963," On a CRV Sport Touring Hybrid, white with a black or gray interior."
+5,0,944.8399963,945.8399963, Sport Touring.
+5,1,945.8399963,946.8399963, Yeah.
+5,1,946.8399963,955.2399979," Right now the MSRP on the vehicle is $42,950 and then our savings is $2,600 and we do have"
+5,1,955.2399979,959.9599991," dealer installed accessories on our vehicle that are already pre-installed at $1,495."
+5,1,960,962.8800001," So our price would be $41,845."
+5,0,962.8800001,967.1199999," Okay, why don't we take another $900 off the car and take the dealer ads off, then we got"
+5,0,967.1199999,968.1199999, a deal.
+5,0,968.1199999,969.1199999, Easy peasy lemon squeezy.
+5,1,969.1199999,970.1199999, I do understand.
+5,1,970.1199999,971.1199999," So yeah, unfortunately, we're firm at the $41,845."
+5,0,971.1199999,972.1199999," Okay, sounds good."
+5,0,972.1199999,973.1199999," Thank you, sir."
+5,1,973.1199999,974.1199999, Thank you.
+5,1,974.1199999,975.1199999, You're welcome.
+5,0,975.1199999,976.1200008, Bye.
+6,1,976.1200008,977.1200008, It's a great day for calling Honda.
+6,1,977.1200008,978.1200008, This is Paige speaking.
+6,1,978.1200008,979.1200008, How may I help you?
+6,0,979.1200008,980.1200008," Hey Paige, are you in sales?"
+6,1,980.1200008,981.1200008, I am in sales.
+6,0,981.1200008,982.1200008, How's it going?
+6,1,982.1200008,983.1200008," Hey, I'm doing well."
+6,1,983.1200008,984.1200008, Doing well.
+6,0,984.1200008,985.1200008," Hey, I just want to see if you guys have a car available."
+6,1,985.1200008,986.1200008, Absolutely.
+6,1,986.1200008,987.1200008, What car are we looking for?
+6,0,987.1200008,988.1200008, I do have a stock number if that helps.
+6,1,988.1200008,989.1200008," Oh, okay."
+6,1,989.1200008,990.1200008, Give me one second here.
+6,1,990.1200008,991.1200008, Of course.
+6,1,991.1200008,992.1199989, All right.
+6,1,992.1199989,993.1199989, And that stock number for you?
+6,0,993.1199989,994.1199989," It's H as in Honda, 4828."
+6,1,994.1199989,995.1199989, All right.
+6,1,995.1199989,996.1199989," It looks like we're looking for that 2025 Honda CRV hybrid and the sport-touring trim,"
+6,1,996.1199989,997.1199989, the all-wheel drive.
+6,0,997.1199989,998.1199989, That is correct.
+6,1,998.1199989,999.1199989, And the platinum white exterior?
+6,0,999.1199989,1000.119999, That is it.
+6,1,1000.119999,1001.119999, All right.
+6,1,1001.119999,1002.119999, Good vehicle.
+6,1,1002.119999,1003.119999, I actually had two calls on this today.
+6,0,1003.119999,1004.119999," Oh, awesome."
+6,0,1004.119999,1005.119999, All right.
+6,1,1020.119999,1021.119999," Oh, because you did say, like, the name."
+6,1,1021.119999,1022.119999," And I was like, oh yeah."
+6,1,1022.119999,1023.119999, Yes.
+6,1,1023.119999,1024.120003, I've had a couple calls on this one.
+6,1,1024.120003,1025.120003, How's it going?
+6,1,1025.120003,1026.120003, What are we looking for today?
+6,0,1026.120003,1027.120003, I love it.
+6,0,1027.120003,1028.120003, So I've already driven this.
+6,0,1028.120003,1029.120003, I already know I love it.
+6,0,1029.120003,1030.120003, I'm really just looking to get the best possible price.
+6,0,1030.120003,1031.120003," If we can do that, then I'll buy it today."
+6,1,1031.120003,1032.120003, Absolutely.
+6,1,1032.120003,1033.120003, Where are you located?
+6,0,1033.120003,1034.120003, I'm in Monterey.
+6,1,1034.120003,1035.120003, Monterey.
+6,1,1035.120003,1036.120003, Okay.
+6,1,1037.120003,1042, And I'll transfer you over to my manager and he can give you the numbers over the phone
+6,1,1042,1043, there.
+6,0,1043,1044, Yeah.
+6,1,1044,1045, I don't have much when it comes to numbers.
+6,1,1045,1050.160004," I don't have access, but I could definitely get you transferred to him and he can talk"
+6,1,1050.160004,1051.160004, the numbers with you.
+6,1,1051.160004,1053, Were you planning on trading in a vehicle?
+6,0,1053,1054, I'm not.
+6,1,1054,1055, No.
+6,0,1055,1056, No.
+6,1,1056,1057, Okay.
+6,1,1057,1058, So just doing a purchase or a lease?
+6,0,1058,1059, Just purchase.
+6,0,1059,1060, Purchase.
+6,1,1060,1061, Purchase.
+6,1,1061,1062, Okay.
+6,1,1062,1063, All right.
+6,1,1063,1064, And did you want to do finance or pay cash?
+6,0,1064,1065, Open to either or.
+6,1,1065,1066, Open to either or.
+6,1,1066.879997,1067.879997," First name, please."
+6,0,1067.879997,1068.879997, My first name is Tommy.
+6,1,1068.879997,1069.879997, All right.
+6,1,1069.879997,1070.879997, Tommy.
+6,1,1070.879997,1071.879997," And I'm Paige, by the way."
+6,0,1071.879997,1072.879997," Nice to meet you, Paige."
+6,1,1072.879997,1073.879997," Hey, Tommy."
+6,1,1073.879997,1074.879997, And can you spell your last name for me?
+6,0,1074.879997,1075.879997, My last name is M as in Mary.
+6,0,1075.879997,1076.879997, I-K-U-L-A.
+6,1,1076.879997,1077.879997, Okay.
+6,1,1077.879997,1080, So I'm going to transfer you over to my manager.
+6,1,1080,1085.9, I will let him know what you're what it is you're looking for. So just give him one second. We'll be right with you
+6,0,1085.9,1087.9," Okay, sounds good"
+6,0,1090.52,1091.2, Adam how's it going? 
+6,1,1091.2,1093.2,"Good, sir. How are you?"
+6,0,1093.2,1095.2," Hey, I'm doing well doing well. I don't know if Paige filled you in"
+6,1,1095.2,1097.120001, How you doing?
+6,1,1097.120001,1098.48, What can I help you with? 
+6,0,1098.48,1100.48,I was just trying to get numbers on a car. 
+6,1,1100.48,1101.48,Which car is that?
+6,0,1101.48,1104.4, I have a stock number when you're ready one second. 
+6,1,1104.4,1105.4,So how's your day so far?
+6,0,1105.4,1107.4," Uh, you know, it's just another day in paradise"
+6,1,1108,1114.720001, I like that at least you stay in positive man.
+6,0,1114.720001,1117.48, That's all I'm trying man. You gotta stay positive.
+6,1,1117.48,1120.48,But your phone looks like you could you call him from Florida? 
+6,0,1120.48,1121.720001,"Nope, not from Florida, man."
+6,0,1121.720001,1125.959999," I'm in Monterey. Okay. No, I used to live in Florida once upon a time"
+6,1,1125.959999,1128.66," Oh, I see because you still have the same number, right? "
+6,0,1128.66,1130.66,"Yeah, do people change their numbers when they move."
+6,1,1130.66,1131.66,Some of them they do.
+6,1,1131.66,1136.82," I don't know. I mean I have family in New Jersey anyway, so they still have the New York phone number"
+6,0,1136.82,1139.619999, So you still have a New York number? You didn't change it?
+6,1,1139.619999,1143.580002," No, they don't because otherwise you're gonna be hunting everybody."
+6,1,1143.580002,1148.540001," I'm gonna distribute number to everybody else. Yeah, so what's your stock number?"
+6,0,1148.779999,1152.660004, The stock number is going to be H is in Honda 482. Uh-huh
+6,1,1152.660004,1159.220001," It looks like it's a finished unit actually and this is a CRV hybrid sport, correct? "
+6,1,1159.220001,1164.099998, What is the color on this one? It is platinum white. 
+6,1,1165.099998,1171.339996,"Can I ask you something I mean, it's just obvious"
+6,1,1172.18,1177.220001, Are you financing or leasing the reason I'm asking if you lease him they do have
+6,1,1177.699997,1185.5," Kind of like incentive program as well on this one. So is a rebate of $1,400. That's a captive lease cash"
+6,1,1186.620003,1192.739998," $1,400. So are you financing if you finance and you can get 3.49% for five years for three years"
+6,1,1192.739998,1200.019997, and 5.49% for 72 months. Are you financing?
+6,0,1200,1201, Okay.
+6,1,1201,1205," And you can buy the car for $41,950."
+6,0,1205,1206," $41,950."
+6,0,1206,1207, Out the door?
+6,0,1207,1208, That's a great price.
+6,1,1208,1209," No, no."
+6,1,1209,1212," You still have to pay your tax and license, unfortunately."
+6,0,1212,1216," Well, we're so close, but yet so far."
+6,1,1216,1219, So where do I have to be at?
+6,1,1219,1225," I mean, just let me see my inventory first before I pick something in my mouth."
+6,1,1225,1226, What are you looking at?
+6,1,1226,1227, Tell me.
+6,0,1227,1231," What I'm trying to do is you get $3,500."
+6,1,1231,1234," I cannot do that on a Touring, to be honest with you."
+6,1,1234,1236, I cannot do that at all.
+6,1,1236,1239," What I get, my allocation, normally I'll get maybe a quarter."
+6,1,1239,1242, I'll get maybe four or five of those Tourings.
+6,1,1242,1244," A Sport L, that's one thing."
+6,1,1244,1245," $3,500."
+6,1,1245,1249," I mean, if somebody's giving you a number anyway, it's just giving you a number to blow"
+6,1,1249,1252," you out of the water, and that's the unfortunate thing."
+6,1,1252,1253, I cannot.
+6,0,1253,1256," Okay, so you're saying somebody else might do it, but you won't."
+6,1,1256,1258," Well, who's going to do it?"
+6,0,1258,1260," Oh, Cal-****-London's getting pretty close."
+6,1,1260,1261, Who's that?
+6,0,1261,1262, Cal-****-London.
+6,1,1262,1263," Okay, they give it to you in writing?"
+6,0,1263,1264," Yeah, they got pretty close."
+6,1,1264,1266," They didn't get there yet, but I'm trying to get there."
+6,1,1266,1269," I mean, it's just you're asking for somebody that didn't give you the actual number."
+6,1,1269,1271, I'm giving you an actual number.
+6,0,1271,1274," Well, no, Cal-****-London gave me an actual number that's better than your number."
+6,0,1274,1276, It's just not the number I want.
+6,1,1276,1277, Which is what?
+6,0,1277,1278," $2,500."
+6,1,1278,1281," Yeah, I mean, I can't do $3,500, that's for sure."
+6,1,1281,1283, Do they have the car in there?
+6,0,1283,1285," They do have the car, and they have $2,500."
+6,0,1285,1286, They do have the car.
+6,1,1286,1287, Okay.
+6,1,1287,1291," Yeah, maybe they calculate the rebate or what have you once you go in there, and they say"
+6,1,1291,1293, you don't qualify for this and you don't qualify for that.
+6,0,1293,1295," Just $2,500 off, straight up."
+6,0,1295,1296," Yeah, yeah."
+6,0,1296,1297, No rebates.
+6,0,1297,1298, I can pay cash.
+6,1,1298,1299," I cannot do that, actually."
+6,1,1299,1300, Yeah.
+6,0,1300,1302," Okay, so you guys won't beat that?"
+6,0,1302,1304, You guys won't even entertain it?
+6,1,1304,1305," No, sir."
+6,0,1305,1306, All right.
+6,0,1306,1307, No problem.
+6,0,1307,1308, I'll keep on looking.
+6,1,1308,1309," Sure, sir."
+6,0,1309,1310," All right, bye."
+6,1,1310,1311, Thanks for calling.
+7,1,1311,1312, Thank you for calling.
+7,1,1312,1313, This is Ghassan.
+7,1,1313,1314, How may I assist you?
+7,0,1314,1315," Hey, Ghassan, are you in sales?"
+7,1,1315,1316, Yes.
+7,1,1316,1317, Okay.
+7,0,1317,1318," Well, hey, I just first off want to see if a car is available."
+7,0,1318,1319, I can give you a ...
+7,1,1319,1320, What type of car do you have in mind?
+7,0,1320,1321.76, I have a stock number whenever you're ready.
+7,1,1321.76,1322.76," Okay, go ahead."
+7,0,1322.76,1323.76, S is in Sam.
+7,0,1323.76,1324.76, L is in Lake.
+7,0,1324.76,1325.76, 0-3-3-6-3-5.
+7,1,1325.76,1330.92," Okay, this one, it looks like this is the last six of the van."
+7,1,1330.92,1333.92," That means the car may be in the transit, or maybe it's here."
+7,1,1333.92,1334.92, I have to go check.
+7,1,1334.92,1336.6," So what type of car is that, by the way?"
+7,0,1336.6,1339.48, It is a CRV hybrid sport touring.
+7,1,1339.48,1340.48," Okay, sport touring."
+7,1,1340.48,1341.48, Got you.
+7,1,1341.48,1342.48," Now, what's your name, by the way?"
+7,0,1342.48,1343.48, My name's Tommy.
+7,1,1343.48,1347.440001," So this is a CRV touring, because I know we have a bunch of them."
+7,1,1347.440001,1349.120001, They just came in this morning.
+7,1,1349.120001,1354.880001," So probably the system's not updated, but this is what I'm going to do."
+7,1,1354.880001,1356.279999, Find out if they're here.
+7,1,1356.279999,1358.080002, And what color is the one you were looking at?
+7,0,1358.080002,1359.080002, White.
+7,1,1359.080002,1360.080002, White one.
+7,1,1360.080002,1361.720001," Okay, so you're making it easy for me."
+7,1,1361.720001,1364.200001," So I mean, I have two of white ones."
+7,1,1364.200001,1369.68," So the one you're looking at, it says in the transit, but I do have another one."
+7,1,1369.68,1370.68, The same thing.
+7,1,1370.68,1373.959999," And this one, it should be here in the stock, because I'm for sure."
+7,0,1373.959999,1374.959999, Wow.
+7,1,1374.959999,1375.959999, I'll take that one in for an easy beat.
+7,1,1375.959999,1376.959999, Yeah.
+7,1,1376.959999,1380.040001," I'm going to go touch it, because I know a bunch of them came in, about maybe two truck"
+7,1,1380.040001,1383.880001," loads, and a bunch of CRVs, but I'm going to go touch it, and I do have another one"
+7,1,1383.880001,1384.879997, the same.
+7,1,1384.879997,1386.959999, So I should have one out of the two.
+7,1,1386.959999,1390.400002," Now, how soon do you want to get the CRV, Tommy?"
+7,0,1390.400002,1392.480003, I would buy it today for the right deal.
+7,1,1392.480003,1393.480003, I like that.
+7,1,1393.480003,1394.480003," Okay, well, let me go touch it."
+7,1,1394.480003,1395.480003, And you live locally?
+7,1,1395.480003,1396.480003, Where is this at?
+7,0,1396.480003,1397.480003, It's in Monterey.
+7,1,1397.480003,1398.480003," Oh, in Monterey."
+7,1,1398.480003,1401.480003, That's up north by the Bay Area.
+7,0,1401.480003,1402.480003, Correct.
+7,0,1402.480003,1403.480003, $16 flight.
+7,1,1403.480003,1404.480003, Got it.
+7,1,1404.480003,1405.480003, Okay.
+7,1,1405.480003,1406.480003, Sounds very good.
+7,1,1407,1408, I'll call you back.
+7,0,1408,1409, Okay.
+7,0,1409,1410, Sounds good.
+7,0,1410,1411, I'll wait.
+7,1,1411,1412, Okay.
+7,1,1412,1413, Bye-bye.
+7,0,1413,1414, Bye.
+7,0,1414,1415, This is Tommy.
+7,1,1415,1416," Hey, Tommy."
+7,1,1416,1417, How are you?
+7,0,1417,1418, Hey.
+7,0,1418,1419, You got good news for me?
+7,1,1419,1420, Yeah.
+7,1,1420,1421, This is Ghassan.
+7,0,1421,1422, He just called me regarding the touring.
+7,1,1422,1423," Oh, yeah."
+7,1,1423,1424," CRV, right?"
+7,0,1424,1425, Yeah.
+7,0,1425,1426, Okay.
+7,1,1426,1427," Like what I mentioned to you earlier, when I looked at the website, there is two of them."
+7,1,1427,1428, There is another one.
+7,1,1428,1429, I could give you the stock number.
+7,1,1429,1430, Exact same thing.
+7,1,1430,1431, Exact same MSRP.
+7,1,1431,1432, I love it.
+7,1,1432,1433, Same interior color.
+7,1,1433,1434.440002, I'm going to go touch it.
+7,1,1434.519997,1439.199997," The system says yes, it's here, but I have a habit to go touch the car to make sure,"
+7,1,1439.199997,1440.040001, and I might even...
+7,1,1440,1442.76," find the other one, even my manager says it's not here."
+7,1,1442.76,1445.72," So yeah, so we do have it, but let me go confirm it,"
+7,1,1445.72,1447.6, give me five more minutes.
+7,1,1447.6,1449.4," So let's say I have everything said and done,"
+7,1,1449.4,1452.04, are you flying or driving down or flying?
+7,1,1452.04,1452.88, What do you have in mind?
+7,0,1452.88,1453.88," I'll fly down if the deal is right,"
+7,0,1453.88,1455.28," or I can do a remote, whatever makes,"
+7,0,1455.28,1456.360001, whatever floats the boat.
+7,1,1456.360001,1458.52," Okay, so tell me, what would you like to accomplish"
+7,1,1458.52,1459.48, in terms of the deal?
+7,1,1459.48,1461.040001, You know the deal is right always.
+7,0,1461.040001,1463.280001," The deal is right when it's $3,500 off."
+7,1,1463.280001,1467.76," I like that, that's very cool."
+7,1,1467.76,1469.52, Are you gonna pay cash or are you gonna pay in?
+7,0,1469.52,1471.4," I'm open to finance, I'm open to paying cash."
+7,1,1471.4,1473.720001," Whatever you tell me, that way I could give you numbers,"
+7,1,1473.720001,1475.720001, confirm everything before you come in.
+7,0,1475.720001,1477.880001," Which is, let's just say finance to make it better"
+7,0,1477.880001,1479.919998," for you guys, but I don't care about the terms."
+7,1,1479.919998,1481.119999," Oh, no, we don't care."
+7,1,1481.119999,1483.52," I mean, we like, I mean, if you finance with us,"
+7,1,1483.52,1484.84, we'll make a little bit more.
+7,1,1484.84,1487.040001," I'll be honest with you, they have a special APR"
+7,1,1487.040001,1487.880001, with hand-to-hand.
+7,0,1487.880001,1489.279999, A special APR would be great.
+7,1,1489.279999,1491.240002," Yeah, a special APR, okay."
+7,1,1491.240002,1493.919998," What's the term you want, three years or four years?"
+7,0,1493.919998,1495.959999," Three years, four years, let's do four years."
+7,1,1495.959999,1497.720001," It doesn't matter, and how much down payment"
+7,1,1497.720001,1498.560001, would you like to do?
+7,0,1498.599998,1499.639999, Let's just say 10K.
+7,1,1499.639999,1501.52," Okay, 10,000, sound very good."
+7,1,1501.52,1504.040001," So now, the biggest one to agree on the number."
+7,1,1504.040001,1506.599998," You want 3,500 off MSRP?"
+7,0,1506.599998,1508.040001, Easy peasy lemon squeezy.
+7,1,1508.040001,1510.68," Now, how did you come up with this offer, my friend?"
+7,0,1510.68,1513.279999," Well, I have a deal off for $4,000 out of state,"
+7,0,1513.279999,1515.32," and I have a deal off locally for 2,500."
+7,0,1515.32,1517.519997," So I don't wanna ship a car, rather fly a car,"
+7,0,1517.519997,1518.720001, your flight's next to nothing.
+7,0,1518.720001,1521.120003," So if I get $3,500 off, that makes more sense"
+7,0,1521.120003,1523.400002," than getting a $4,000 discounted shipping,"
+7,0,1523.400002,1525.360001," and it's better than 2,500 bucks."
+7,1,1525.360001,1526.720001," Got you, got you, I see what you're saying."
+7,1,1526.760002,1528.239998," Okay, now question."
+7,1,1528.239998,1529.839996, What's about your local dealership?
+7,1,1529.839996,1532," I know there is one in Monterey, one in Gilroy,"
+7,1,1532,1533.639999, which is about 40 minutes away.
+7,1,1533.639999,1536.760002," Santa Cruz, they have dealerships there as well."
+7,1,1536.760002,1539.639999," I mean, in your local dealership, what's the best you got?"
+7,0,1539.639999,1540.800003," 2,500 off."
+7,1,1540.800003,1541.639999," 2,500 off."
+7,0,1541.639999,1543.160004," So that's why 3,500 makes sense,"
+7,0,1543.160004,1544.839996, because I'll make a flight and make a road trip out of it.
+7,0,1544.839996,1545.68, It'll be fun.
+7,0,1545.68,1547.360001, So are you trading anything in or not?
+7,0,1547.360001,1548.919998," No, I'm not trading anything in."
+7,1,1548.919998,1551.480003," Okay, let me just go talk to my boss"
+7,1,1551.480003,1553.639999, to see if we are in the same ballpark.
+7,1,1553.639999,1556.480003," You know, you don't get no haggle or back and forth."
+7,0,1557.120003,1559.080002, I've obviously been calling every dealership in town.
+7,1,1559.080002,1559.919998, You know the.
+7,1,1560,1562.36," program better than I do, seem like, Tommy."
+7,1,1562.36,1563.96, You've done your homework very well.
+7,0,1563.96,1565.76," I try, I try to know my stuff."
+7,1,1565.76,1566.96," Yeah, gotcha, great."
+7,1,1566.96,1569.68," So give me like 15 minutes, my manager step out,"
+7,1,1569.68,1571.36," and I'll call you back shortly, okay?"
+7,0,1571.36,1572.28," Okay, sounds good."
+7,1,1572.28,1573.12," Okay, bye-bye."
+8,1,1573.12,1576.639999," Thank you for calling, Honda, this is Ivan speaking."
+8,1,1576.639999,1577.48, Good to have a pleasure speaking with you.
+8,0,1577.48,1578.6," Hey, Ivan, it's Tommy."
+8,0,1578.6,1579.440001, How's it going?
+8,1,1579.440001,1580.280001," Good, good, how are you?"
+8,0,1580.280001,1581.120001," Hey, I'm doing well."
+8,0,1581.120001,1582.559999," Hey, I want to see if you guys have a car available."
+8,0,1582.559999,1583.5, Is it sales?
+8,1,1583.5,1585.16, Was it a pre-owned car or a new car?
+8,0,1585.16,1586, A brand new car.
+8,1,1586,1587, Brand new car?
+8,0,1587,1587.82, Yep.
+8,1,1587.82,1588.66," All right, thank you."
+8,1,1588.66,1589.52, And what kind of car was it?
+8,1,1589.52,1590.82, Do you have a stock number available?
+8,0,1590.82,1592.220001, I do have a stock number whenever you're ready.
+8,1,1592.220001,1593.740002," Sorry, there's some internet issues."
+8,1,1593.740002,1595.259998, I can't even load up our own site.
+8,0,1595.259998,1596.66," No, you're good."
+8,0,1596.66,1598.299999, Internet's the best.
+8,1,1598.299999,1599.419998," Yeah, I'm sorry, this is Dan?"
+8,0,1599.419998,1600.259998," Nope, Tommy."
+8,1,1601.099998,1601.939999, Donnie?
+8,0,1601.939999,1603.02, Tommy.
+8,1,1603.02,1603.98, Everybody okay back there?
+8,0,1603.98,1605.580002, It seemed like you were being robbed.
+8,1,1605.580002,1609.459999," Seriously, you know the energy in the sales room,"
+8,1,1609.459999,1612.259998, staff is pretty about to get really loud.
+8,1,1612.259998,1615.619999," Oh, okay, yeah, yeah, the energy must be crazy."
+8,1,1615.619999,1617.34, They get the energy high in this room.
+8,1,1617.34,1619.419998, Sometimes I got to tell them to please be careful.
+8,0,1620.400002,1622.080002," Oh, I get it, I get it."
+8,1,1622.080002,1624," Yeah, okay, what is the stock number?"
+8,0,1624,1628.480003, Stock number is 003-07-510.
+8,1,1628.480003,1629.599998, What kind of car is this?
+8,0,1629.599998,1632.440002, This is a Honda CR-V Hybrid Sport Touring.
+8,1,1632.440002,1633.279999, What color?
+8,0,1633.279999,1635.800003, In platinum white pearl.
+8,1,1635.800003,1639.559998," Okay, it's not showing up on my website right now."
+8,0,1639.559998,1641.199997, So you're saying the car probably sold?
+8,1,1641.199997,1642.919998," I'm thinking if it's not on the website,"
+8,1,1642.919998,1645.919998," the car probably sold, but I could double check."
+8,1,1645.919998,1647.160004, What color interior was it?
+8,1,1647.160004,1648.360001, Is it a black interior?
+8,0,1648.360001,1649.360001, Black interior.
+8,1,1650.18,1651.5," Okay, I could check to see if I have another"
+8,1,1651.5,1654.220001, CR-V Hybrid Sport Touring available in white.
+8,0,1654.220001,1655.459999," Yeah, if you have another one, that's okay,"
+8,0,1655.459999,1656.580002," that one sold, yeah."
+8,0,1656.580002,1658.300003," But yeah, if you have another one, I'm okay with that."
+8,1,1658.300003,1661.660004," Okay, perfect, so if we do have it available,"
+8,1,1661.660004,1663.260002, would you like to come in and check it out?
+8,0,1663.260002,1664.779999," If you have it available, we can give you the numbers,"
+8,0,1664.779999,1665.620003, I'll come by.
+8,1,1665.620003,1667.260002," Okay, perfect, you're local?"
+8,1,1667.260002,1668.82," I'm not local, I'm in Monterey."
+8,0,1668.82,1670.300003," Monterey, oh, Monterey Park?"
+8,1,1670.300003,1672.139999," All right, Tommy, what is your last name?"
+8,0,1672.139999,1674.980003," Mikula, M-I-K-U-L-A."
+8,1,1674.980003,1677.339996," Mikula, awesome."
+8,1,1677.339996,1679.339996, Is this a good callback number?
+8,0,1679.339996,1680.199997, That's correct.
+8,1,1680,1685.24," Okay, so let me get it together here pull up the let me see if I have that color option available"
+8,1,1685.24,1689.44, Do you have a secondary color option? I know we have hybrid sport tourings in stock. I just want to find one
+8,1,1689.44,1691.76," That's in stock and available.  Okay, perfect"
+8,0,1691.76,1694.76,"No, just just looking for the white one."
+8,1,1694.76,1697.32," So, let me confirm that first if the car is available"
+8,1,1698.040001,1700.280001, I'll give you a call back from there. 
+8,0,1700.280001,1703.280001,"Awesome. Perfect. Yeah, let me know and I'm ready to buy so cool."
+8,0,1703.280001,1705.24," I'm glad to hear that. All right, Tommy. I'll give you a call back. "
+8,0,1705.24,1707.24,"Okay, sounds good. Thanks for calling. Bye. Bye"
+8,1,1711,1716.200001," No, I'm not gonna help you. Hey, I'm looking to speak to I think gays and gossan gossan"
+8,1,1717.16,1722.080002, Your call has been forwarded to voicemail. The person you're trying to reach is not available. Hey
+8,0,1729.560001,1735.919998,Bye guys. I'm done. 
+8,0,1736.200001,1742.959999, They're not gonna call back.
