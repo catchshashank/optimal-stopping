@@ -185,22 +185,17 @@ diagnostic = validate_synthetic(real_trainval_df, synthetic_df)
 **What it does:** Labels every turn with its negotiation phase (1–5) based on the call evolution framework derived from transcript analysis. Phase is used as a moderator in Study 1 and as a structural control throughout.
 
 The five phases derived from the transcripts:
-- **Phase 1 — Verify:** Stock number exchange, car confirmation
-- **Phase 2 — Rapport:** Personal exchange before any price discussion
-- **Phase 3 — Anchor:** First numeric discount mentioned by either party
-- **Phase 4 — Cycle:** Iterative concession exchange
-- **Phase 5 — Resolve:** Acceptance, callback bridge, or walkaway
+- **Phase 1 — Pre-negotiation:** Stock number exchange, car confirmation, and rapport building
+- **Phase 2 — Price-negotiation:** First numeric discount mentioned by either party and concession exchange
+- **Phase 5 — Outcome:** Acceptance (1), callback (2), or walkaway (0)
 
 ```python
-def assign_phases(df):
-    """
-    Rule-based phase assignment — no model involved,
-    so it cannot leak information between train and test sets.
-    """
+# Phase assignment — simplified to 3 phases
+def assign_phases_3(df):
     df = df.copy().sort_values(["conv_id", "start_time"])
 
     df["mentions_price"] = df["text"].str.contains(
-        r"\$[\d,]+|\d+[\s]*(hundred|thousand|k)\s*(off|back|discount)",
+        r"\$[\d,]+|\d+[\s]*(off|back|discount)",
         case=False, regex=True).astype(int)
 
     df["is_resolution"] = df["text"].str.contains(
@@ -208,28 +203,84 @@ def assign_phases(df):
         r"going to go|call somebody else|pay less|I'll fly down",
         case=False, regex=True).astype(int)
 
+    # Anchor turn: first turn where buyer names a numeric discount
+    df["is_anchor_turn"] = (
+        (df["speaker_id"] == 0) &
+        (df["mentions_price"] == 1) &
+        (~df.groupby("conv_id")["mentions_price"].transform(
+            lambda x: x.shift(1).fillna(0).cummax()).astype(bool))
+    ).astype(int)
+
     phases = []
     for conv_id, group in df.groupby("conv_id"):
         group = group.reset_index(drop=True)
         first_price      = group[group["mentions_price"] == 1].index.min()
         first_resolution = group[group["is_resolution"] == 1].index.min()
 
-        p3_start = int(first_price)      if not pd.isna(first_price)      else len(group)
-        p4_start = p3_start + 2          # anchor + first counter = 2 turns
-        p5_start = int(first_resolution) if not pd.isna(first_resolution) else len(group)
+        p2_start = int(first_price)       if not pd.isna(first_price)      else len(group)
+        p3_start = int(first_resolution)  if not pd.isna(first_resolution) else len(group)
 
         for i in range(len(group)):
-            if   i < 3:          phase = 1
-            elif i < p3_start:   phase = 2
-            elif i < p4_start:   phase = 3
-            elif i < p5_start:   phase = 4
-            else:                phase = 5
+            phase = 1 if i < p2_start else 2 if i < p3_start else 3
             phases.append({"conv_id": conv_id, "turn_idx": i, "phase": phase})
 
     return df.merge(pd.DataFrame(phases), on=["conv_id"])
 
-combined_df  = assign_phases(combined_df)
-real_test_df = assign_phases(real_test_df)
+
+# Phase 3 outcome: multinomial logit with callback as reference
+def assign_resolution_outcome(df):
+    """
+    Labels the resolution outcome for each conversation.
+    accept   = dealer's offer accepted, sale confirmed
+    walkaway = Tommy exits to a competitor
+    callback = Tommy defers — call ends with explicit follow-up intent
+    """
+    df = df.copy()
+    df["resolution"] = df["text"].apply(lambda t: (
+        "accept"   if pd.notna(t) and any(w in t.lower() for w in
+                      ["sounds good", "let's do it", "deal", "i'll take it"])
+        else "walkaway" if pd.notna(t) and any(w in t.lower() for w in
+                      ["pay less", "call somebody else", "going to go",
+                       "bye", "goodbye"])
+        else "callback" if pd.notna(t) and any(w in t.lower() for w in
+                      ["call you back", "sleep on", "talk to my wife",
+                       "think about it", "let me know"])
+        else None))
+
+    # One resolution label per conversation (last non-null)
+    conv_resolution = (df[df["resolution"].notna()]
+                       .sort_values("start_time")
+                       .groupby("conv_id")["resolution"]
+                       .last()
+                       .reset_index())
+    return conv_resolution
+
+
+# Multinomial logit for Phase 3
+import statsmodels.api as sm
+from statsmodels.discrete.discrete_model import MNLogit
+
+conv_resolutions = assign_resolution_outcome(combined_df)
+conv_level = snapshots_df.groupby("conv_id").agg(
+    L_score_mean  = ("L_score", "mean"),
+    L_score_p2    = ("L_score",
+                      lambda x: x[snapshots_df.loc[x.index,"phase"]==2].mean()),
+    gap_final     = ("gap", "last"),
+    uncertainty_final = ("prior_sigma", "last"),
+    n_concessions = ("concession", "sum"),
+).reset_index().merge(conv_resolutions, on="conv_id")
+
+# Encode: callback=0 (reference), accept=1, walkaway=2
+conv_level["outcome_code"] = conv_level["resolution"].map(
+    {"callback": 0, "accept": 1, "walkaway": 2})
+
+X = sm.add_constant(conv_level[[
+    "L_score_p2", "gap_final",
+    "uncertainty_final", "n_concessions"]])
+y = conv_level["outcome_code"]
+
+mnlogit = MNLogit(y, X).fit()
+print(mnlogit.summary())
 ```
 
 ---
