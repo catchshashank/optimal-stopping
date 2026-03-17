@@ -187,7 +187,7 @@ diagnostic = validate_synthetic(real_trainval_df, synthetic_df)
 The five phases derived from the transcripts:
 - **Phase 1 — Pre-negotiation:** Stock number exchange, car confirmation, and rapport building
 - **Phase 2 — Price-negotiation:** First numeric discount mentioned by either party and concession exchange
-- **Phase 5 — Outcome:** Acceptance (1), callback (2), or walkaway (0)
+- **Phase 3 — Outcome:** Acceptance (1), callback (2), or walkaway (0)
 
 ```python
 # Phase assignment — simplified to 3 phases
@@ -303,7 +303,7 @@ def build_concession_snapshots(df, context_turns=6):
     snapshots = []
     for conv_id, group in df.groupby("conv_id"):
         group = group.reset_index(drop=True)
-        dealer_turns = group[group["speaker_id"].isin([1, 2])].index
+        dealer_turns = group[group["speaker_id"].isin([1])].index
 
         for idx in dealer_turns:
             start   = max(0, idx - context_turns)
