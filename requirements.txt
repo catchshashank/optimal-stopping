@@ -1,0 +1,15 @@
+# Core ML
+torch>=2.1.0
+transformers>=4.46.0
+datasets>=2.18.0
+huggingface_hub>=0.22.0
+accelerate>=0.27.0
+
+# Data / ML utilities
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+tqdm>=4.66.0
+
+# Optional: OpenAI backend (for GPT-4o)
+openai>=1.0.0
