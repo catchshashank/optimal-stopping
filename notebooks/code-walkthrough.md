@@ -319,7 +319,7 @@ trainer.train()
 
 > **Code Logic:** In practice, training stopped at Epoch 4 when validation AUC reached 1.00 — perfect separation of "quit" vs. "wait" calls. The model effectively mastered the decision problem.
 
-For more refer to the [Model Learning](model_learning.md) document.
+For more refer to the [Model Learning](model-learning.md) document.
 
 ---
 
