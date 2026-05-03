@@ -1,0 +1,5 @@
+run,cost_per_s,benefit_per_sale,roc_auc_175s,roc_auc_260s,roc_auc_350s,roc_auc_400s,threshold_175s,threshold_260s,threshold_350s,threshold_400s,baseline_avg_reward,baseline_sales,baseline_time_s,agent_avg_reward,agent_sales,agent_time_s,sales_lost,time_saved_s,time_saved_pct,reward_gained
+RF1a_cost0.01_ben10,0.01,10.0,0.639,0.667,0.333,0.611,-0.0,-0.0,-0.0,0.0008,-1.41,6,7695.3,-1.41,6,7695.3,0,0.0,0.0,0.0
+RF2a_cost0.05_ben10,0.05,10.0,0.639,0.667,0.333,0.611,0.0085,0.1009,0.9914,0.9874,-27.06,6,7695.3,-12.0,1,3081.0,5,4614.3,60.0,180.71
+RF1b_cost1.0_ben1000,1.0,1000.0,0.639,0.667,0.333,0.611,-0.0,-0.0,-0.0,0.0008,-141.27,6,7695.3,-141.27,6,7695.3,0,0.0,0.0,0.0
+RF2b_cost5.0_ben1000,5.0,1000.0,0.639,0.667,0.333,0.611,0.0085,0.1009,0.9914,0.9874,-2706.37,6,7695.3,-1200.42,1,3081.0,5,4614.3,60.0,18071.4
