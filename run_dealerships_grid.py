@@ -21,8 +21,8 @@ if not OPENAI_API_KEY:
 OPENAI_MODEL = "gpt-4o"
 
 REWARD_FUNCTIONS = {
-    "RF1_cost0.01_ben10": {"cost": 0.01, "benefit": 10.0},
-    "RF2_cost0.05_ben10": {"cost": 0.05, "benefit": 10.0},
+    "RF1_cost1.0_ben1000": {"cost": 1.0, "benefit": 1000.0},
+    "RF2_cost5.0_ben1000": {"cost": 5.0, "benefit": 1000.0},
 }
 DECISION_PAIRS = {
     "DP1_115_230": [115, 230],
@@ -261,7 +261,7 @@ for dp_name, windows in DECISION_PAIRS.items():
 
 # ── Save ───────────────────────────────────────────────────────────────────────
 results_df = pd.DataFrame(records)
-out_csv = os.path.join(os.path.dirname(__file__), "data", "results_dealerships_grid.csv")
+out_csv = os.path.join(os.path.dirname(__file__), "data", "results_dealerships_grid_ben1000.csv")
 results_df.to_csv(out_csv, index=False)
 print(f"\nResults saved to {out_csv}")
 
