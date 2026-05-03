@@ -1,0 +1,5 @@
+dataset,run,reward_fn,windows,m1_s,m2_s,cost_per_s,benefit_per_sale,roc_auc_test_m1,roc_auc_test_m2,threshold_m1,threshold_m2,baseline_total_reward,baseline_avg_reward,baseline_sales,baseline_time_s,agent_total_reward,agent_avg_reward,agent_sales,agent_time_s,sales_lost,time_saved_s,time_saved_pct,reward_gained
+dealerships,RF1_cost0.01_ben10 x DP1_115_230,RF1_cost0.01_ben10,DP1_115_230,115,230,0.01,10.0,0.194,0.139,0.001,0.0017,-16.95,-1.41,6,7695.3,-16.95,-1.41,6,7695.3,0,0.0,0.0,0.0
+dealerships,RF2_cost0.05_ben10 x DP1_115_230,RF2_cost0.05_ben10,DP1_115_230,115,230,0.05,10.0,0.194,0.139,0.003,0.7773,-324.76,-27.06,6,7695.3,-161.81,-13.48,2,3636.3,4,4059.0,52.7,162.95
+dealerships,RF1_cost0.01_ben10 x DP2_90_180,RF1_cost0.01_ben10,DP2_90_180,90,180,0.01,10.0,0.417,0.167,0.0026,0.0008,-16.95,-1.41,6,7695.3,-16.95,-1.41,6,7695.3,0,0.0,0.0,0.0
+dealerships,RF2_cost0.05_ben10 x DP2_90_180,RF2_cost0.05_ben10,DP2_90_180,90,180,0.05,10.0,0.417,0.167,0.9962,0.6826,-324.76,-27.06,6,7695.3,-54.0,-4.5,0,1080.0,6,6615.3,86.0,270.76
